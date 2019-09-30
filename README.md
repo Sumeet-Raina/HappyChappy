@@ -1,10 +1,35 @@
+
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+=======
 # HappyChappy
 HappyChappy tracks your mood and boosts it.
 Feeling annoyed and want to wallow in it? Feeling great and would like to share with someone? Meet Happy Chappy! He always wants to know how you’re feeling and will react to your emotions and even track how you’ve been so you can pin point your ups and downs.
 
 # How to install it (what to clone, what to run to get all dependencies) # 
 
-# How to run it (is it a command line tool? #
+# How to run it (is it a command line tool?) #
 
 # How to run the tests #
 
@@ -20,7 +45,7 @@ Feeling annoyed and want to wallow in it? Feeling great and would like to share 
 1. HTML, CSS, REACT ,JAVASCRIPT
 2. Bootstrap
 
-# ßUser stories #  
+# User stories #  
 
 As a user   
 So that I can use the app
@@ -33,3 +58,4 @@ I want to be able to login
 As a user  
 So that I can monitor my moods  
 I want to be able to create a new record when I login
+
