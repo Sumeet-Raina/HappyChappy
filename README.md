@@ -48,7 +48,7 @@ Feeling annoyed and want to wallow in it? Feeling great and would like to share 
 # User stories #  
 
 As a user   
-So that I can use the app
+So that I can use the app  
 I want to be able to create an account  
 
 As a user  
