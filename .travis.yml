@@ -1,0 +1,21 @@
+language: ruby
+rvm:
+- 2.6.3
+services:
+- postgresql
+script:
+- bundle install
+- bin/rails db:create
+- bin/rails db:migrate
+- bundle exec rspec
+deploy:
+  provider: heroku
+  skip_cleanup: true
+  api_key:
+    secure: jWE1ZXEH6iDTjSHwughz2w9fG399800SyFEOwgH9nO4n+gchF/hgk0NYPZJOqF3AHJ0qxiKD7dVNRpfaQOKJjY1x6VgvMzAa+ZvU2sqYs7GwtneTvTK3Gd/pi/gKDBaRj1nNEtr22oNOidoNQ6emrjQWdWMu3/veUrCq4HYQjA8MmqON6Aej0xoEMjrtI76NDwBfb+aDzwhDJC5bDzMWTtRxrt/PJyeOku4anthPvENsChE0ScHrOR759TqtHB/G7VSeGEkk6kEo4Pt9Ed1ocsCypxHpJ7AreqBGMR1R/r7PciLJ29DRRha1fHDdzIavAsdLAn6rEWvg6sRr7foCbhGt70gVZOeUzJn7z+8pOgW0u1okTNstsZ46nZO39eKJe+BjBGNwYeh4Q1twAAaM/yBSRnFq5vanPKmHG59J2h1tL3IT+bpZmmbcfib21VGrZRYLrIK99iWc1OUUlhBJz1SJb3GbIwS672tasqBqrl5UeB+ng81w30fquoZo5xdlZmHo+THhQXoCHOBxnmi6CYawoyT8zc0pXuZTKUwg1Ve7zUIvTiuzJcxRV6WkYvihTLegSdy4ZuxNJTRpnhU86GT34yOHHXfyvsslHE7gHI2Ktucstu7ayxTIxMWvzvMTNuPb7Fv2ni9RQnkojrR64aS9t+Nd/Kx8Xp/lflRUHz0=
+  app: HappyChappy
+  on:
+    repo: Sumeet-Raina/HappyChappy
+  run:
+  - rake db:migrate
+  - restart
