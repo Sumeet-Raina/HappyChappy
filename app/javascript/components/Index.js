@@ -6,6 +6,7 @@ class Index extends React.Component {
 
       <>
         <h1>Hello. How are you feeling today?</h1>
+        <p>😊</p>
       </>
 
     );
