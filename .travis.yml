@@ -1,0 +1,21 @@
+language: ruby
+rvm:
+- 2.5.0
+services:
+- postgresql
+script:
+- bundle install
+- bin/rails db:create
+- bin/rails db:migrate
+- bundle exec rspec
+deploy:
+  provider: heroku
+  skip_cleanup: true
+  api_key: f3bc2699-8983-4120-9c50-b6ed96fd7c7d
+    secure: 
+  app: HappyChappy
+  on:
+    repo: Sumeet-Raina/acebook_s
+  run:
+  - rake db:migrate
+  - restart
