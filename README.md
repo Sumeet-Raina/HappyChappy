@@ -59,3 +59,12 @@ As a user
 So that I can monitor my moods  
 I want to be able to create a new record when I login
 
+As a user  
+when I login  
+I want to be able to display a response  
+
+
+As a user  
+when I login  
+I want to be able to display a response-count  
+
