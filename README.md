@@ -39,11 +39,17 @@ Feeling annoyed and want to wallow in it? Feeling great and would like to share 
 1. Ruby 2.6
 2. Rails 6.0
 3. Database: Postgres
+4. Authentication: Devise
+5. Testing: Rspec, capybara
+6. Linter: Rubocop
+7. Code complexity
 
 ## Front-end ##
 
 1. HTML, CSS, REACT ,JAVASCRIPT
 2. Bootstrap
+3. Testing: Jest
+4. Linter: ES Lint
 
 # User stories #  
 
