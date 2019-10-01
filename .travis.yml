@@ -7,6 +7,8 @@ script:
 - bundle install
 - bin/rails db:create
 - bin/rails db:migrate
+- bin/rails g react:install
+- yarn install --check-files
 - bundle exec rspec
 deploy:
   provider: heroku

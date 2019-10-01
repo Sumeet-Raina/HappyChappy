@@ -1,0 +1,12 @@
+// Place all the styles related to the page controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.mood-container {
+    text-align: center;
+    .mood {
+        font-size: 25px;
+        color: grey;
+        text-align: center;
+        height: 80px;
+    }
+}
