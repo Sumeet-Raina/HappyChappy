@@ -2,10 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .mood-container {
-    background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/01672946739821.58624bd967bc3.jpg);
     text-align: center;
-    .mood-emoji {
-        display: block;
+    .mood {
+        font-size: 25px;
+        color: grey;
         text-align: center;
         height: 80px;
     }
