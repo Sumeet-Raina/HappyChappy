@@ -52,7 +52,7 @@ So that I can use the app
 I want to be able to create an account  
 
 As a user  
-So that I can access my account
+So that I can access my account  
 I want to be able to login  
 
 As a user  
