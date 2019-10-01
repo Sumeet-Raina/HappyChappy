@@ -11,7 +11,7 @@ script:
 deploy:
   provider: heroku
   skip_cleanup: true
-  api_key: f3bc2699-8983-4120-9c50-b6ed96fd7c7d
+  api_key:
   app: HappyChappy
   on:
     repo: Sumeet-Raina/HappyChappy
