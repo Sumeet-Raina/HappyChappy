@@ -1,5 +1,5 @@
 class PageController < ApplicationController
   def index
-    render component: 'Index'
+    render component: "Index"
   end
 end

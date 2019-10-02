@@ -1,7 +1,6 @@
 # require 'rails_helper'
 
 RSpec.describe PageController, type: :controller do
-
   # describe "GET #index" do
   #   it "returns http success" do
   #     get :index
@@ -15,5 +14,4 @@ RSpec.describe PageController, type: :controller do
   #     expect(page).to have_content("How are you feeling today?")
   #   end
   # end
-
 end
