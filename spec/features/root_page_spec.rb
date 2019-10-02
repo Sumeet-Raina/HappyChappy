@@ -10,11 +10,11 @@ RSpec.feature 'Index', type: :feature do
     end
     scenario 'Can see good mood option' do
       visit('/')
-      expect(page).to have_content('good')
+      expect(page).to have_content('happy')
     end
     scenario 'Can see bad mood option' do
       visit('/')
-      expect(page).to have_content('bad')
+      expect(page).to have_content('sad')
     end
     scenario 'Can see okay mood option' do
       visit('/')

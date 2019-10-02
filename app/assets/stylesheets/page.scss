@@ -9,4 +9,12 @@
         text-align: center;
         height: 80px;
     }
+    .mood-img {
+        height: 90px;
+    }
+}
+
+.mood-wrapper {
+    display: flex;
+    justify-content: space-around;
 }
