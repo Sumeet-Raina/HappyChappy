@@ -3,14 +3,14 @@ rvm:
 - 2.6.3
 services:
 - postgresql
+- sqlite3
 script:
 - bundle install
 - bin/rails db:create
 - bin/rails db:migrate
-- bin/rails g react:install
+- yarn install --check-files
 - eslint ./app/javascript
 - rubocop
-- yarn install --check-files
 - bundle exec rspec
 deploy:
   provider: heroku

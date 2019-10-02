@@ -31,9 +31,9 @@ Feeling annoyed and want to wallow in it? Feeling great and would like to share 
 
 # How to run the tests #
 
-# How to run the linter #
+# How to run the linters #
 eslint ./app/javascript
-
+rubocop
 
 # Tech Stack #
 
