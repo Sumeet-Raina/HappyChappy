@@ -6,7 +6,7 @@ import happy from '../../assets/images/happy'
 import okay from '../../assets/images/okay'
 import silly from '../../assets/images/silly'
 class Index extends React.Component {
-
+ 
   render() {
     return (
 
