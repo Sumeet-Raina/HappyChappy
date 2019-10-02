@@ -9,6 +9,7 @@ script:
 - bin/rails db:migrate
 - bin/rails g react:install
 - eslint ./app/javascript
+- rubocop
 - yarn install --check-files
 - bundle exec rspec
 deploy:

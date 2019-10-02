@@ -32,6 +32,8 @@ Feeling annoyed and want to wallow in it? Feeling great and would like to share 
 # How to run the tests #
 
 # How to run the linter #
+eslint ./app/javascript
+
 
 # Tech Stack #
 
