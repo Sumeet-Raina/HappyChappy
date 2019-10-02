@@ -8,9 +8,10 @@ script:
 - bundle install
 - bin/rails db:create
 - bin/rails db:migrate
+- bin/rails g react:install
 - yarn install --check-files
-- npm install eslint --save-dev
-- bundle exec eslint ./app/javascript
+- npm install eslint
+- npm run lint
 - bundle exec rubocop
 - bundle exec rspec
 deploy:

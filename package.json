@@ -26,6 +26,6 @@
     "webpack-dev-server": "^3.8.1"
   },
   "scripts": {
-    "lint": "eslint ./app/javascript"
+    "lint": "eslint ./app/javascript/components"
   }
 }
