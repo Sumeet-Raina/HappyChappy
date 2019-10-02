@@ -49,6 +49,11 @@ Feeling annoyed and want to wallow in it? Feeling great and would like to share 
 3. Testing: Jest
 4. Linter: ES Lint
 
+## Deployment ##
+
+1. Travis CI
+2. Heroku
+
 # User stories #  
 
 As a user   
