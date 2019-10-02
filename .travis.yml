@@ -9,8 +9,8 @@ script:
 - bin/rails db:create
 - bin/rails db:migrate
 - yarn install --check-files
-- eslint ./app/javascript
-- rubocop
+- bundle exec eslint ./app/javascript
+- bundle exec rubocop
 - bundle exec rspec
 deploy:
   provider: heroku
