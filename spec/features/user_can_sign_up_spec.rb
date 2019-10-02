@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Sign up", type: :feature do
   scenario "Can sign up" do
