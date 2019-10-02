@@ -14,10 +14,12 @@ class Index extends React.Component {
         <h1 className='welcome-sentence'>Hello.
         <br />
           How are you feeling today?</h1>
-        <Mood moodType='happy' moodImage={happy} />
-        <Mood moodType='okay' moodImage={okay} />
-        <Mood moodType='silly' moodImage={silly} />
-        <Mood moodType='sad' moodImage={sad} />
+        <div className="mood-wrapper">
+          <Mood moodType='happy' moodImage={happy} />
+          <Mood moodType='okay' moodImage={okay} />
+          <Mood moodType='silly' moodImage={silly} />
+          <Mood moodType='sad' moodImage={sad} />
+        </div>
       </div>
 
     );
