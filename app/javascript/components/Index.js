@@ -1,5 +1,8 @@
 import React from "react"
 import Mood from './Mood'
+import ChuckNorrisFact from './ChuckNorrisFact'
+import RandomJoke from './RandomJoke'
+import RandomMeme from './RandomMeme'
 import sad from '../../assets/images/sad'
 import happy from '../../assets/images/happy'
 import okay from '../../assets/images/okay'
@@ -58,16 +61,11 @@ class Index extends React.Component {
     })
   }
 
-
-
-
-
-
   render() {
     return (
 
       <div className='mood-container'>
-        <h1 className='welcome-sentence'>Hello.
+        <h1 className='welcome-sentence title is-1'>Hello.
         <br />
           How are you feeling today?</h1>
         <div className="mood-wrapper">
@@ -76,10 +74,15 @@ class Index extends React.Component {
           <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} />
           <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} />
         </div>
-        <p>Happy: {this.state.happy}</p>
-        <p>Okay: {this.state.okay}</p>
-        <p>Silly: {this.state.silly}</p>
-        <p>Sad: {this.state.sad}</p>
+        <p className='notification'>{this.state.happy}</p>
+        <p className='notification'>{this.state.okay}</p>
+        <p className='notification'>{this.state.silly}</p>
+        <p className='notification'>{this.state.sad}</p>
+        <div className="entertainment-container">
+          <ChuckNorrisFact />
+          <RandomJoke />
+          <RandomMeme />
+        </div>
       </div>
 
     );
