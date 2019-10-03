@@ -31,6 +31,7 @@ class Index extends React.Component {
   }
 
   addState(mood) {
+    this.createMood(mood)
     this.setState((prevState) => ({
       [`${mood}`]: prevState[`${mood}`] + 1
     }))

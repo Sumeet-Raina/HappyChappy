@@ -10,7 +10,8 @@ module API
     end
 
     def create
-      mood = Mood.create(user_id: current_user.id, mood_type: params[:current_mood])
+      mood = Mood.create(user_id: current_user.id, mood_type: params[:currentMood])
+
       render json: { mood: mood }
     end
   end
