@@ -5,6 +5,7 @@ import happy from '../../assets/images/happy'
 import okay from '../../assets/images/okay'
 import silly from '../../assets/images/silly'
 import axios from 'axios'
+import { passCsrfToken } from '../util/helpers'
 
 class Index extends React.Component {
 
