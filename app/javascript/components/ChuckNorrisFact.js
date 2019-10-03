@@ -15,12 +15,10 @@ class ChuckNorrisFact extends React.Component {
   getFact() {
     axios.get('https://api.chucknorris.io/jokes/random')
       .then(response => {
-        console.log(response)
         this.setState({ fact: response.data.value });
       }).catch(error => {
         console.log(error);
       });
-    console.log(this.state)
   }
 
   render() {
