@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.feature "Log In", type: :feature do
+RSpec.feature 'Log In', type: :feature do
   # scenario "Can log in" do
   #   visit "/users/sign_in"
   #   expect(page).to have_content("Remember me")
