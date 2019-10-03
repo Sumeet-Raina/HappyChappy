@@ -26,15 +26,15 @@ class RandomMeme extends React.Component {
   render() {
     return (
       <div className="random-meme-container">
-        <h1 className='random-meme-title'>Random Joke</h1>
-        <h3 className='random-meme-title'>{'"' + this.state.title + '"'}</h3>
+        <h1 className='random-meme-title label'>Random Joke</h1>
+        <h3 className='random-meme-title subtitle'>{'"' + this.state.title + '"'}</h3>
         <img src={this.state.url} className='random-meme-img' alt="" />
         <button onClick={this.getMeme}
           type="button"
-          className="random-meme-button">
+          className="random-meme-button button is-info">
           One More Meme Please!
       </button>
-      </div>
+      </div >
     );
   }
 }

@@ -28,15 +28,15 @@ class RandomJoke extends React.Component {
   render() {
     return (
       <div className="random-joke-container">
-        <h1 className='random-joke-title'>Random Joke</h1>
-        <h3 className='random-joke-setup'>{'"' + this.state.setup + '"'}</h3>
-        <h3 className='random-joke-punchline'>{'"' + this.state.punchline + '"'}</h3>
+        <h1 className='random-joke-title label'>Random Joke</h1>
+        <h3 className='random-joke-setup subtitle'>{'"' + this.state.setup + '"'}</h3>
+        <h3 className='random-joke-punchline subtitle'>{'"' + this.state.punchline + '"'}</h3>
         <button onClick={this.getJoke}
           type="button"
-          className="random-joke-button">
+          className="random-joke-button button is-info">
           More Jokes Please!
       </button>
-      </div>
+      </div >
     );
   }
 }
