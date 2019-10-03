@@ -30,7 +30,7 @@ class Index extends React.Component {
     return (
 
       <div className='mood-container'>
-        <h1 className='welcome-sentence'>Hello.
+        <h1 className='welcome-sentence title is-1'>Hello.
         <br />
           How are you feeling today?</h1>
         <div className="mood-wrapper">
@@ -39,10 +39,10 @@ class Index extends React.Component {
           <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} />
           <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} />
         </div>
-        <p>{this.state.happy}</p>
-        <p>{this.state.okay}</p>
-        <p>{this.state.sad}</p>
-        <p>{this.state.silly}</p>
+        <p className='notification'>{this.state.happy}</p>
+        <p className='notification'>{this.state.okay}</p>
+        <p className='notification'>{this.state.sad}</p>
+        <p className='notification'>{this.state.silly}</p>
         <div className="entertainment-container">
           <ChuckNorrisFact />
           <RandomJoke />
