@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import Mood from './Mood'
 import ChuckNorrisFact from './ChuckNorrisFact'
 import RandomJoke from './RandomJoke'
+import RandomMeme from './RandomMeme'
 import sad from '../../assets/images/sad'
 import happy from '../../assets/images/happy'
 import okay from '../../assets/images/okay'
@@ -17,11 +18,9 @@ class Index extends React.Component {
   }
 
   handleClick = (mood) => {
-
     this.setState((prevState) => ({
       [`${mood}`]: prevState[`${mood}`] + 1
     }))
-    console.log(this.state)
   }
 
 
@@ -44,8 +43,11 @@ class Index extends React.Component {
         <p>{this.state.okay}</p>
         <p>{this.state.sad}</p>
         <p>{this.state.silly}</p>
-        <ChuckNorrisFact />
-        <RandomJoke />
+        <div className="entertainment-container">
+          <ChuckNorrisFact />
+          <RandomJoke />
+          <RandomMeme />
+        </div>
       </div>
 
     );

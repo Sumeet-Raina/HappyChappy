@@ -1,10 +1,40 @@
 import React from "react"
-import PropTypes from "prop-types"
+import axios from 'axios'
 class RandomMeme extends React.Component {
-  render () {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: 'FBI OPEN UP"',
+      url: 'https://i.redd.it/zmwnl5jvj8q31.jpg'
+    };
+
+    this.getMeme = this.getMeme.bind(this)
+  }
+
+  getMeme() {
+    axios.get('https://meme-api.herokuapp.com/gimme')
+      .then(response => {
+        this.setState({
+          title: response.data.title,
+          url: response.data.url,
+        });
+      }).catch(error => {
+        console.log(error);
+      });
+  }
+
+  render() {
     return (
-      <React.Fragment>
-      </React.Fragment>
+      <div className="random-meme-container">
+        <h1 className='random-meme-title'>Random Joke</h1>
+        <h3 className='random-meme-title'>{'"' + this.state.title + '"'}</h3>
+        <img src={this.state.url} className='random-meme-img' alt="" />
+        <button onClick={this.getMeme}
+          type="button"
+          className="random-meme-button">
+          One More Meme Please!
+      </button>
+      </div>
     );
   }
 }
