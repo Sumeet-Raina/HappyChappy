@@ -13,36 +13,52 @@ class Index extends React.Component {
     happy: 0,
     sad: 0,
     silly: 0,
-    okay: 0,
-    moods: ""
+    okay: 0
   }
 
   componentDidMount() {
     passCsrfToken(document, axios)
+    this.setMoods()
   }
 
   handleClick = (mood) => {
+    let currentMood = {currentMood: mood}   
+    this.createMood(currentMood)
+    this.addState(mood)
+  }
 
-    let current_mood = {current_mood: mood}
-    
+  addState(mood) {
+    this.setState((prevState) => ({
+      [`${mood}`]: prevState[`${mood}`] + 1
+    }))
+  }
+
+  setMoods() {
     axios
-      .post('/api/moods', current_mood)
-      .catch(error => {
-        console.log(error)
-      })
-      .then(
-        axios
-        .get('/api/moods')
-        .then(response => {
-          this.setState({ 
-            happy: response.data.happy,
-            sad: response.data.sad,
-            okay: response.data.okay,
-            silly: response.data.silly
+      .get('/api/moods')
+      .then(response => {
+        this.setState({ 
+          happy: response.data.happy,
+          sad: response.data.sad,
+          okay: response.data.okay,
+          silly: response.data.silly
           });
         })
-      )
   }
+
+  createMood(currentMood) {
+    axios
+    .post('/api/moods', currentMood)
+    .then(response => {
+      console.log(response)
+      console.log(response.data)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
+
+
 
 
 
@@ -61,9 +77,9 @@ class Index extends React.Component {
           <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} />
         </div>
         <p>Happy: {this.state.happy}</p>
-        <p>Sad: {this.state.sad}</p>
         <p>Okay: {this.state.okay}</p>
         <p>Silly: {this.state.silly}</p>
+        <p>Sad: {this.state.sad}</p>
       </div>
 
     );

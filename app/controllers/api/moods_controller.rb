@@ -3,7 +3,6 @@ module API
 
     def index
       moods = current_user.moods.all
-      p moods.last
       happy_count = moods.count { |mood| mood.mood_type == "happy"}
       sad_count = moods.count { |mood| mood.mood_type == "sad"}
       okay_count = moods.count { |mood| mood.mood_type == "okay"}
