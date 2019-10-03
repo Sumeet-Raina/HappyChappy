@@ -8,8 +8,10 @@ class Mood extends React.Component {
       <div onClick={
         () => this.props.handleClick(this.props.moodType)} className="mood-container">
         <div className="mood-item">
-          <h2 className="mood-type">{this.props.moodType}</h2>
-          <img src={this.props.moodImage} alt="happy face" className='happy-img mood-img' />
+          <h2 className="mood-type label">{this.props.moodType}</h2>
+          <figure className="image is-128x128">
+            <img src={this.props.moodImage} alt={this.props.moodType} />
+          </figure>
         </div>
       </div>
 
