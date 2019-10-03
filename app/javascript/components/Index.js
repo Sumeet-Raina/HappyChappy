@@ -22,16 +22,26 @@ class Index extends React.Component {
   }
 
   handleClick = (mood) => {
-    axios
-      .get('/api/moods')
-      .then(response => {
-        this.setState({ moods: response.data.moods });
-      })
 
-    this.setState((prevState) => ({
-      [`${mood}`]: prevState[`${mood}`] + 1
-    }))
-    console.log(this.state)
+    let current_mood = {current_mood: mood}
+    
+    axios
+      .post('/api/moods', current_mood)
+      .catch(error => {
+        console.log(error)
+      })
+      .then(
+        axios
+        .get('/api/moods')
+        .then(response => {
+          this.setState({ 
+            happy: response.data.happy,
+            sad: response.data.sad,
+            okay: response.data.okay,
+            silly: response.data.silly
+          });
+        })
+      )
   }
 
 
@@ -50,10 +60,10 @@ class Index extends React.Component {
           <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} />
           <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} />
         </div>
-        <p>{this.state.happy}</p>
-        <p>{this.state.okay}</p>
-        <p>{this.state.sad}</p>
-        <p>{this.state.silly}</p>
+        <p>Happy: {this.state.happy}</p>
+        <p>Sad: {this.state.sad}</p>
+        <p>Okay: {this.state.okay}</p>
+        <p>Silly: {this.state.silly}</p>
       </div>
 
     );
