@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import Mood from './Mood'
 import ChuckNorrisFact from './ChuckNorrisFact'
+import RandomJoke from './RandomJoke'
 import sad from '../../assets/images/sad'
 import happy from '../../assets/images/happy'
 import okay from '../../assets/images/okay'
@@ -43,7 +44,8 @@ class Index extends React.Component {
         <p>{this.state.okay}</p>
         <p>{this.state.sad}</p>
         <p>{this.state.silly}</p>
-        <ChuckNorrisFact/>
+        <ChuckNorrisFact />
+        <RandomJoke />
       </div>
 
     );
