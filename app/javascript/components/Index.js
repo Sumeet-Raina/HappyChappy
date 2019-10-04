@@ -11,6 +11,7 @@ import axios from 'axios'
 import PieChart from 'react-minimal-pie-chart';
 import ReactMinimalPieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
+import Chatbot from './Chatbot';
 
 class Index extends React.Component {
 
@@ -95,10 +96,12 @@ class Index extends React.Component {
             fill: '#121212'
           }}
         />
+        
         <div className="entertainment-container">
           <ChuckNorrisFact />
           <RandomJoke />
           <RandomMeme />
+          <Chatbot />
         </div>
       </div>
 
