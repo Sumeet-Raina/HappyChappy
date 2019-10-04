@@ -27,11 +27,14 @@ class Index extends React.Component {
 
   handleClick = (mood) => {
     let currentMood = {currentMood: mood}   
-    this.createMood(currentMood)
-    this.addState(mood)
+    this.createMood(currentMood)   
     this.setState({
       currentMood: mood
     })
+    let self = this
+    setTimeout(function(){
+      self.setMoods()
+    }, 50)
   }
 
   addState(mood) {
@@ -60,6 +63,7 @@ class Index extends React.Component {
     .then(response => {
       console.log(response)
       console.log(response.data)
+      return response
     })
     .catch(error => {
       console.log(error)
@@ -74,8 +78,8 @@ class Index extends React.Component {
         <br />
           How are you feeling today?</h1>
         <div className="mood-wrapper">
-          <Mood moodType='happy' moodImage={happy} handleClick={this.handleClick} currentMood={this.state.currentMood} />
-          <Mood moodType='okay' moodImage={okay} handleClick={this.handleClick} currentMood={this.state.currentMood} />
+          <Mood moodType='happy' moodImage={happy} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
+          <Mood moodType='okay' moodImage={okay} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
           <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
           <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
         </div>

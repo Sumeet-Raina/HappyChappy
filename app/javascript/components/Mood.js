@@ -13,7 +13,7 @@ class Mood extends React.Component {
   render() {
     return (
       <div onClick={
-        () => this.props.handleClick(this.props.moodType)} className="mood-container">
+        () => this.props.handleClick(this.props.moodType, this.props.setMoods)} className="mood-container">
         <div className="mood-item">
           <h2 className="mood-type label">{this.props.moodType}</h2>
           <figure className="image is-128x128">
