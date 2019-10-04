@@ -77,42 +77,20 @@ class Index extends React.Component {
           <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} />
           <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} />
         </div>
-        {/* <p className='notification'>{this.state.happy}</p>
-        <p className='notification'>{this.state.okay}</p>
-        <p className='notification'>{this.state.silly}</p>
-        <p className='notification'>{this.state.sad}</p> */}
 
-        <ReactMinimalPieChart
-          data={[{
-            title: 'Happy',
-            value: this.state.happy,
-            color: '#E38627'
-          }]}
-          totalValue={100}
-          lineWidth={20}
-          label
-          labelStyle={{
-            fontSize: '25px',
-            fontFamily: 'sans-serif'
-          }}
-          labelPosition={0}
-          style={{ height: '20vw' }}
-        />
-
-
-
-        <PieChart width='10%'
+        <PieChart
           data={[
             { title: 'Happy', value: this.state.happy, color: '#E38627' },
             { title: 'Okay', value: this.state.okay, color: '#C13C37' },
             { title: 'silly', value: this.state.silly, color: '#6A4335' },
             { title: 'sad', value: this.state.sad, color: '#6A2135' },
           ]}
-          style={{ height: '30vw' }}
+          style={{ height: '15vw' }}
           label
           animate
           labelStyle={{
-            fontSize: '5px',
+            fontSize: '10px',
+            fontColor: '#FFFFFF',
             fontFamily: 'sans-serif',
             fill: '#121212'
           }}
