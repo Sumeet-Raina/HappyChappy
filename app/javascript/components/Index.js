@@ -16,7 +16,8 @@ class Index extends React.Component {
     happy: 0,
     sad: 0,
     silly: 0,
-    okay: 0
+    okay: 0,
+    currentMood: ""
   }
 
   componentDidMount() {
@@ -28,6 +29,9 @@ class Index extends React.Component {
     let currentMood = {currentMood: mood}   
     this.createMood(currentMood)
     this.addState(mood)
+    this.setState({
+      currentMood: mood
+    })
   }
 
   addState(mood) {
@@ -70,15 +74,16 @@ class Index extends React.Component {
         <br />
           How are you feeling today?</h1>
         <div className="mood-wrapper">
-          <Mood moodType='happy' moodImage={happy} handleClick={this.handleClick} />
-          <Mood moodType='okay' moodImage={okay} handleClick={this.handleClick} />
-          <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} />
-          <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} />
+          <Mood moodType='happy' moodImage={happy} handleClick={this.handleClick} currentMood={this.state.currentMood} />
+          <Mood moodType='okay' moodImage={okay} handleClick={this.handleClick} currentMood={this.state.currentMood} />
+          <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
+          <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
         </div>
         <p className='notification'>{this.state.happy}</p>
         <p className='notification'>{this.state.okay}</p>
         <p className='notification'>{this.state.silly}</p>
         <p className='notification'>{this.state.sad}</p>
+        <p className='notification'>{this.state.currentMood}</p>
         <div className="entertainment-container">
           <ChuckNorrisFact />
           <RandomJoke />
