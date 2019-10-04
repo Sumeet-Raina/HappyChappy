@@ -37,7 +37,7 @@ gem "travis"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false
-
+gem "bootstrap-sass-rails", "~> 2.2.2.0"
 group :development, :test do
   gem "rspec-rails", "~> 3.8"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
