@@ -1,18 +1,13 @@
 import React from "react"
-import PropTypes from "prop-types"
+
 class Mood extends React.Component {
 
   setOpacity(){
     if (this.props.currentMood == "" || this.props.currentMood == this.props.moodType ) {
-        return { opacity: 1 }
+      return { opacity: 1 }
     } else {
-        return { opacity: 0.2 }
-      }
-    // if (this.props.currentMood != this.props.moodType) {
-    //   return { opacity: 0.2 }
-    // } else {
-    //   return { opacity: 1 }
-    // }
+      return { opacity: 0.2 }
+    }
   }
 
   render() {
@@ -26,7 +21,6 @@ class Mood extends React.Component {
           </figure>
         </div>
       </div>
-
     );
   }
 }
