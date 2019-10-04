@@ -10,7 +10,11 @@ module API
     end
 
     def create
-      mood = Mood.create(user_id: current_user.id, mood_type: params[:currentMood])
+      if Mood.last.created_at.to_date == Date.today
+        mood = Mood.last.update(mood_type: params[:currentMood])
+      else
+        mood = Mood.create(user_id: current_user.id, mood_type: params[:currentMood])
+      end
 
       render json: { mood: mood }
     end
