@@ -34,6 +34,8 @@ gem "jbuilder", "~> 2.7"
 gem "eslintrb"
 # Travis gem
 gem "travis"
+# Intercom gem for the Chatbot API
+gem "intercom-rails"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false
