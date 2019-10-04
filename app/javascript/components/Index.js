@@ -9,7 +9,6 @@ import okay from '../../assets/images/okay'
 import silly from '../../assets/images/silly'
 import axios from 'axios'
 import PieChart from 'react-minimal-pie-chart';
-import ReactMinimalPieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
 
 class Index extends React.Component {
@@ -18,52 +17,49 @@ class Index extends React.Component {
     happy: 0,
     sad: 0,
     silly: 0,
-    okay: 0
+    okay: 0,
+    currentMood: ""
   }
 
   componentDidMount() {
     passCsrfToken(document, axios)
-    this.setMoods()
+    this.setMoods(this)
   }
 
   handleClick = (mood) => {
-    let currentMood = { currentMood: mood }
-    this.createMood(currentMood)
-    this.addState(mood)
+    let currentMood = {currentMood: mood}
+    this.createMood(currentMood, this.setMoods)
+    this.setState({
+      currentMood: mood
+    })
   }
 
-  addState(mood) {
-    this.createMood(mood)
-    this.setState((prevState) => ({
-      [`${mood}`]: prevState[`${mood}`] + 1
-    }))
-  }
-
-  setMoods() {
-    axios
-      .get('/api/moods')
-      .then(response => {
-        this.setState({
-          happy: response.data.happy,
-          sad: response.data.sad,
-          okay: response.data.okay,
-          silly: response.data.silly
-        });
-      })
-  }
-
-  createMood(currentMood) {
+  createMood(currentMood, callback) {
     axios
       .post('/api/moods', currentMood)
       .then(response => {
         console.log(response)
         console.log(response.data)
+        callback(this)
       })
       .catch(error => {
         console.log(error)
       })
   }
 
+  setMoods(self) {
+    axios
+      .get('/api/moods')
+      .then(response => {
+        self.setState({ 
+          happy: response.data.happy,
+          sad: response.data.sad,
+          okay: response.data.okay,
+          silly: response.data.silly,
+          currentMood: response.data.currentMood
+        });
+      })
+  }
   render() {
     return (
 
@@ -72,18 +68,17 @@ class Index extends React.Component {
         <br />
           How are you feeling today?</h1>
         <div className="mood-wrapper">
-          <Mood moodType='happy' moodImage={happy} handleClick={this.handleClick} />
-          <Mood moodType='okay' moodImage={okay} handleClick={this.handleClick} />
-          <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} />
-          <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} />
+          <Mood moodType='happy' moodImage={happy} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
+          <Mood moodType='okay' moodImage={okay} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
+          <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
+          <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
         </div>
-
         <PieChart
           data={[
-            { title: 'Happy', value: this.state.happy, color: '#E38627' },
             { title: 'Okay', value: this.state.okay, color: '#C13C37' },
-            { title: 'silly', value: this.state.silly, color: '#6A4335' },
-            { title: 'sad', value: this.state.sad, color: '#6A2135' },
+            { title: 'Happy', value: this.state.happy, color: '#E38627' },
+            { title: 'Silly', value: this.state.silly, color: '#6A4335' },
+            { title: 'Sad', value: this.state.sad, color: '#6A2135' }
           ]}
           style={{ height: '15vw' }}
           label
