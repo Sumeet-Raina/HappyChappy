@@ -26,7 +26,7 @@ class RandomMeme extends React.Component {
   render() {
     return (
       <div className="random-meme-container">
-        <h1 className='random-meme-title label'>Random Joke</h1>
+        <h1 className='random-meme-title label'>Random Meme</h1>
         <h3 className='random-meme-title subtitle'>{'"' + this.state.title + '"'}</h3>
         <img src={this.state.url} className='random-meme-img' alt="" />
         <button onClick={this.getMeme}

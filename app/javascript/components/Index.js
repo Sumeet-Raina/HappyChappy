@@ -8,6 +8,8 @@ import happy from '../../assets/images/happy'
 import okay from '../../assets/images/okay'
 import silly from '../../assets/images/silly'
 import axios from 'axios'
+import PieChart from 'react-minimal-pie-chart';
+import ReactMinimalPieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
 
 class Index extends React.Component {
@@ -55,10 +57,9 @@ class Index extends React.Component {
           sad: response.data.sad,
           okay: response.data.okay,
           silly: response.data.silly
-          });
-        })
+        });
+      })
   }
-
   render() {
     return (
 
@@ -72,11 +73,23 @@ class Index extends React.Component {
           <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
           <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
         </div>
-        <p className='notification'>{this.state.happy}</p>
-        <p className='notification'>{this.state.okay}</p>
-        <p className='notification'>{this.state.silly}</p>
-        <p className='notification'>{this.state.sad}</p>
-        <p className='notification'>{this.state.currentMood}</p>
+        <PieChart
+          data={[
+            { title: 'Happy', value: this.state.happy, color: '#E38627' },
+            { title: 'Okay', value: this.state.okay, color: '#C13C37' },
+            { title: 'silly', value: this.state.silly, color: '#6A4335' },
+            { title: 'sad', value: this.state.sad, color: '#6A2135' },
+          ]}
+          style={{ height: '15vw' }}
+          label
+          animate
+          labelStyle={{
+            fontSize: '10px',
+            fontColor: '#FFFFFF',
+            fontFamily: 'sans-serif',
+            fill: '#121212'
+          }}
+        />
         <div className="entertainment-container">
           <ChuckNorrisFact />
           <RandomJoke />
