@@ -8,6 +8,7 @@ import happy from '../../assets/images/happy'
 import okay from '../../assets/images/okay'
 import silly from '../../assets/images/silly'
 import axios from 'axios'
+import PieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
 
 class Index extends React.Component {
@@ -25,7 +26,7 @@ class Index extends React.Component {
   }
 
   handleClick = (mood) => {
-    let currentMood = {currentMood: mood}   
+    let currentMood = { currentMood: mood }
     this.createMood(currentMood)
     this.addState(mood)
   }
@@ -41,25 +42,25 @@ class Index extends React.Component {
     axios
       .get('/api/moods')
       .then(response => {
-        this.setState({ 
+        this.setState({
           happy: response.data.happy,
           sad: response.data.sad,
           okay: response.data.okay,
           silly: response.data.silly
-          });
-        })
+        });
+      })
   }
 
   createMood(currentMood) {
     axios
-    .post('/api/moods', currentMood)
-    .then(response => {
-      console.log(response)
-      console.log(response.data)
-    })
-    .catch(error => {
-      console.log(error)
-    })
+      .post('/api/moods', currentMood)
+      .then(response => {
+        console.log(response)
+        console.log(response.data)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   render() {
@@ -79,6 +80,15 @@ class Index extends React.Component {
         <p className='notification'>{this.state.okay}</p>
         <p className='notification'>{this.state.silly}</p>
         <p className='notification'>{this.state.sad}</p>
+        <PieChart width='10%'
+          data={[
+            { title: 'Happy', value: this.state.happy, color: '#E38627' },
+            { title: 'Okay', value: this.state.okay, color: '#C13C37' },
+            { title: 'silly', value: this.state.silly, color: '#6A4335' },
+            { title: 'sad', value: this.state.sad, color: '#6A2135' },
+          ]}
+          style={{ height: '30vw' }}
+        />
         <div className="entertainment-container">
           <ChuckNorrisFact />
           <RandomJoke />
