@@ -21,20 +21,20 @@ module API
     end
 
     private
-    def countMood(moods, emotion)
-      moods.count { |mood| mood.mood_type == emotion }
-    end
-
-    def checkCurrentMood
-      if todays_mood?
-        return Mood.last.mood_type
-      else
-        return ""
+      def countMood(moods, emotion)
+        moods.count { |mood| mood.mood_type == emotion }
       end
-    end
 
-    def todays_mood?
-      Mood.last.created_at.to_date == Date.today
-    end
+      def checkCurrentMood
+        if todays_mood?
+          Mood.last.mood_type
+        else
+          ""
+        end
+      end
+
+      def todays_mood?
+        Mood.last.created_at.to_date == Date.today
+      end
   end
 end
