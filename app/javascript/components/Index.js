@@ -22,52 +22,41 @@ class Index extends React.Component {
 
   componentDidMount() {
     passCsrfToken(document, axios)
-    this.setMoods()
+    this.setMoods(this)
   }
 
   handleClick = (mood) => {
-    let currentMood = {currentMood: mood}   
-    this.createMood(currentMood)   
+    let currentMood = {currentMood: mood}
+    this.createMood(currentMood, this.setMoods)
     this.setState({
       currentMood: mood
     })
-    let self = this
-    setTimeout(function(){
-      self.setMoods()
-    }, 50)
   }
 
-  addState(mood) {
-    this.createMood(mood)
-    this.setState((prevState) => ({
-      [`${mood}`]: prevState[`${mood}`] + 1
-    }))
+  createMood(currentMood, callback) {
+    axios
+      .post('/api/moods', currentMood)
+      .then(response => {
+        console.log(response)
+        console.log(response.data)
+        callback(this)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
-  setMoods() {
+  setMoods(self) {
     axios
       .get('/api/moods')
       .then(response => {
-        this.setState({ 
+        self.setState({ 
           happy: response.data.happy,
           sad: response.data.sad,
           okay: response.data.okay,
           silly: response.data.silly
           });
         })
-  }
-
-  createMood(currentMood) {
-    axios
-    .post('/api/moods', currentMood)
-    .then(response => {
-      console.log(response)
-      console.log(response.data)
-      return response
-    })
-    .catch(error => {
-      console.log(error)
-    })
   }
 
   render() {
