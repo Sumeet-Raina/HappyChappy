@@ -1,7 +1,20 @@
 import React from "react";
 import ChatBot from "react-simple-chatbot";
+import { ThemeProvider } from "styled-components";
 
 function CustomChatbot(props) {
+
+  const theme = {
+    background: "white",
+    fontFamily: "Arial, Helvetica, sans-serif",
+    headerBgColor: "#3297ED",
+    headerFontColor: "#fff",
+    headerFontSize: "25px",
+    botBubbleColor: "#3297ED",
+    botFontColor: "#fff",
+    userBubbleColor: "#fff",
+    userFontColor: "#4c4c4c"
+  };
   const config = {
     width: "300px",
     height: "400px",
@@ -52,6 +65,9 @@ function CustomChatbot(props) {
     }
 
   ]
-  return (<ChatBot steps={steps} {...config} />)
+  return (
+    <ThemeProvider theme={theme}>
+      <ChatBot steps={steps} {...config} />
+    </ThemeProvider>)
 }
 export default CustomChatbot;
