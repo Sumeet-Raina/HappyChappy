@@ -11,6 +11,7 @@ import axios from 'axios'
 import PieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
 import ChatBot from './ChatBot'
+import CustomChatbot from "./ChatBot";
 
 class Index extends React.Component {
 
@@ -97,7 +98,7 @@ class Index extends React.Component {
           <RandomMeme />
         </div>
 
-        <ChatBot />
+        <CustomChatbot />
       </div>
 
     );
