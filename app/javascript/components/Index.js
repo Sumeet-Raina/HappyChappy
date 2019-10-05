@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react";
 import Mood from './Mood'
 import ChuckNorrisFact from './ChuckNorrisFact'
 import RandomJoke from './RandomJoke'
@@ -10,6 +10,8 @@ import silly from '../../assets/images/silly'
 import axios from 'axios'
 import PieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
+import CustomChatbot from "./CustomChatbot";
+
 
 class Index extends React.Component {
 
@@ -51,7 +53,7 @@ class Index extends React.Component {
     axios
       .get('/api/moods')
       .then(response => {
-        self.setState({ 
+        self.setState({
           happy: response.data.happy,
           sad: response.data.sad,
           okay: response.data.okay,
@@ -73,6 +75,7 @@ class Index extends React.Component {
           <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
           <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
         </div>
+
         <PieChart
           data={[
             { title: 'Okay', value: this.state.okay, color: '#C13C37' },
@@ -95,6 +98,7 @@ class Index extends React.Component {
           <RandomJoke />
           <RandomMeme />
         </div>
+        <CustomChatbot/>
       </div>
 
     );
