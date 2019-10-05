@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react";
 import Mood from './Mood'
 import ChuckNorrisFact from './ChuckNorrisFact'
 import RandomJoke from './RandomJoke'
@@ -10,6 +10,7 @@ import silly from '../../assets/images/silly'
 import axios from 'axios'
 import PieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
+import ChatBot from './ChatBot'
 
 class Index extends React.Component {
 
@@ -27,7 +28,7 @@ class Index extends React.Component {
   }
 
   handleClick = (mood) => {
-    let currentMood = {currentMood: mood}
+    let currentMood = { currentMood: mood }
     this.createMood(currentMood, this.setMoods)
     this.setState({
       currentMood: mood
@@ -51,7 +52,7 @@ class Index extends React.Component {
     axios
       .get('/api/moods')
       .then(response => {
-        self.setState({ 
+        self.setState({
           happy: response.data.happy,
           sad: response.data.sad,
           okay: response.data.okay,
@@ -68,10 +69,10 @@ class Index extends React.Component {
         <br />
           How are you feeling today?</h1>
         <div className="mood-wrapper">
-          <Mood moodType='happy' moodImage={happy} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
-          <Mood moodType='okay' moodImage={okay} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
-          <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
-          <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
+          <Mood moodType='happy' moodImage={happy} handleClick={this.handleClick} currentMood={this.state.currentMood} />
+          <Mood moodType='okay' moodImage={okay} handleClick={this.handleClick} currentMood={this.state.currentMood} />
+          <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} currentMood={this.state.currentMood} />
+          <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} currentMood={this.state.currentMood} />
         </div>
         <PieChart
           data={[
@@ -95,6 +96,8 @@ class Index extends React.Component {
           <RandomJoke />
           <RandomMeme />
         </div>
+
+        <ChatBot />
       </div>
 
     );
