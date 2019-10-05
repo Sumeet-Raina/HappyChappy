@@ -11,7 +11,7 @@ import axios from 'axios'
 import PieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
 import ChatBot from './ChatBot'
-import CustomChatbot from "./ChatBot";
+import CustomChatbot from "./CustomChatbot";
 
 class Index extends React.Component {
 
