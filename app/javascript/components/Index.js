@@ -13,6 +13,7 @@ import { passCsrfToken } from '../util/helpers'
 import CustomChatbot from "./CustomChatbot";
 
 class Index extends React.Component {
+  _isMounted = false;
 
   state = {
     happy: 0,
@@ -23,6 +24,7 @@ class Index extends React.Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     passCsrfToken(document, axios)
     this.setMoods(this)
   }
@@ -30,9 +32,11 @@ class Index extends React.Component {
   handleClick = (mood) => {
     let currentMood = { currentMood: mood }
     this.createMood(currentMood, this.setMoods)
-    this.setState({
-      currentMood: mood
-    })
+    if (this._isMounted) {
+      this.setState({
+        currentMood: mood
+      })
+    }
   }
 
   createMood(currentMood, callback) {
@@ -52,13 +56,15 @@ class Index extends React.Component {
     axios
       .get('/api/moods')
       .then(response => {
-        self.setState({
-          happy: response.data.happy,
-          sad: response.data.sad,
-          okay: response.data.okay,
-          silly: response.data.silly,
-          currentMood: response.data.currentMood
-        });
+        if (this._isMounted) {
+          self.setState({
+            happy: response.data.happy,
+            sad: response.data.sad,
+            okay: response.data.okay,
+            silly: response.data.silly,
+            currentMood: response.data.currentMood
+          });
+        }
       })
   }
   render() {
