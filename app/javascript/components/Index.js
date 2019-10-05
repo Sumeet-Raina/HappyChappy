@@ -10,7 +10,6 @@ import silly from '../../assets/images/silly'
 import axios from 'axios'
 import PieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
-import ChatBot from './ChatBot'
 import CustomChatbot from "./CustomChatbot";
 
 class Index extends React.Component {
@@ -92,13 +91,12 @@ class Index extends React.Component {
             fill: '#121212'
           }}
         />
+        <CustomChatbot />
         <div className="entertainment-container">
           <ChuckNorrisFact />
           <RandomJoke />
           <RandomMeme />
         </div>
-
-        <CustomChatbot />
       </div>
 
     );
