@@ -12,6 +12,8 @@
   <body>
     <% if user_signed_in? %>
       <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+      <%= link_to('Edit profile', edit_user_registration_path) %>
+
     <% end %>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
