@@ -88,21 +88,23 @@ class Index extends React.Component {
     },
     {
       id: "Today",
-      component: (
-        <div className="mood-wrapper">
-          <Mood moodType='happy' moodImage={happy} handleClick={this.handleClick} currentMood={this.state.currentMood} />
-          <Mood moodType='okay' moodImage={okay} handleClick={this.handleClick} currentMood={this.state.currentMood} />
-          <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} currentMood={this.state.currentMood} />
-          <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} currentMood={this.state.currentMood} />
-          {() => this.state.current_mood}
-        </div>
-      ),
-      trigger: 'Mood'
+      options: [
+        { value: 'happy', label: 'happy', trigger: () => { this.handleClick('happy') } },
+        { value: 'silly', label: 'silly', trigger: () => { this.handleClick('silly') } },
+        { value: 'okay', label: 'okay', trigger: () => { this.handleClick('okay') } },
+        {
+          value: 'sad', label: 'sad', trigger: () => {
+            this.handleClick('sad');
+            return "Greet"
+          }
+        },
+      ],
+
     }, {
-      id: "Mood",
-      message: `My mood is {previousValue}`,
-      end: true,
-    }
+      id: "Greet",
+      message: "Hello, How are you feeling today?",
+      trigger: "Today"
+    },
   ];
 
   config = {
