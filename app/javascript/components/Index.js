@@ -169,21 +169,15 @@ class Index extends React.Component {
       id: 'Statistics',
       component: (
         <PieChart
+
           data={[
             { title: 'Okay', value: this.state.okay, color: '#C13C37' },
             { title: 'Happy', value: this.state.happy, color: '#E38627' },
             { title: 'Silly', value: this.state.silly, color: '#6A4335' },
-            { title: 'Sad', value: 0, color: '#6A2135' }
+            { title: 'Sad', value: this.state.sad, color: '#6A2135' }
           ]}
-          style={{ height: '15vw' }}
-          label
-          animate
-          labelStyle={{
-            fontSize: '10px',
-            fontColor: '#FFFFFF',
-            fontFamily: 'sans-serif',
-            fill: '#121212'
-          }}
+
+
         />
       ),
       end: true
