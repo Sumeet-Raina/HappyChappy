@@ -5,11 +5,11 @@ require "rails_helper"
 RSpec.feature "Sign up", type: :feature do
   scenario "Can sign up" do
     visit "/users/sign_up"
+    fill_in "user[user_name]", with: "tester"
     fill_in "user[email]", with: "test@gmail.com"
     fill_in "user[password]", with: "123456"
     fill_in "user[password_confirmation]", with: "123456"
     click_button "Sign up"
-    expect(page).to have_current_path("/")
     expect(page).to have_content("How are you feeling today?")
   end
 
@@ -47,5 +47,25 @@ RSpec.feature "Sign up", type: :feature do
     fill_in "user[password_confirmation]", with: "123456"
     click_button "Sign up"
     expect(page).to have_content("Sign up")
+  end
+
+  scenario "Username must be valid" do
+    visit "/users/sign_up"
+    fill_in "user[user_name]", with: "testtest"
+    fill_in "user[email]", with: "test.test"
+    fill_in "user[password]", with: "123456"
+    fill_in "user[password_confirmation]", with: "123456"
+    click_button "Sign up"
+    expect(page).to have_content("Sign up")
+  end
+
+  scenario "Username must be valid" do
+    visit "/users/sign_up"
+    fill_in "user[user_name]", with: "tes"
+    fill_in "user[email]", with: "test.test"
+    fill_in "user[password]", with: "123456"
+    fill_in "user[password_confirmation]", with: "123456"
+    click_button "Sign up"
+    expect(page).to have_content("User name is too short (minimum is 4 characters)")
   end
 end
