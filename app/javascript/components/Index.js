@@ -72,6 +72,16 @@ class Index extends React.Component {
 
   };
 
+  sadMoodAdvice() {
+    const advices = ["It’s okay to feel sad.", "Remember it’s temporary.",
+      "It’s normal to feel sad.", "What the one way you can take care of yourself right now?", "It’s okay to feel sad. Be brave, reachout to someone or write your thoughts down on paper."
+    ]
+
+    const index = Math.floor(Math.random * advices.length)
+    console.log(advices[index])
+    return `${advices[index]}`
+  }
+
 
 
   steps = [
@@ -111,9 +121,38 @@ class Index extends React.Component {
 
     }, {
       id: "happyMood",
-      message: "Hello",
-      end: true
+      message: "That’ great! Share your good vibes,send a happy text to someone you like 📱",
+      trigger: "chuckProposition"
+    }, {
+      id: "sadMood",
+      message: "It’s okay to feel sad. Be brave, reachout to someone or write your thoughts down on paper.",
+      trigger: "jokeProposition"
+    }, {
+      id: "sillyMood",
+      message: "Do a silly dance 💃🏻 🕺🏾",
+      trigger: "memeProposition"
+    }, {
+      id: "okayMood",
+      message: "Close your eyes and take 10 deep breaths with a smile on your face and see how you feel. 🌬",
+      trigger: "jokeProposition"
+    }, {
+      id: 'jokeProposition',
+      component: (
+        <RandomJoke />
+      )
     },
+    {
+      id: 'memeProposition',
+      component: (
+        <RandomMeme />
+      )
+    },
+    {
+      id: 'chuckProposition',
+      component: (
+        <ChuckNorrisFact />
+      )
+    }
   ];
 
   config = {
