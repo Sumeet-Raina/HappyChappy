@@ -6,6 +6,7 @@ RSpec.feature "Index", type: :feature do
   describe "Mood Page" do
     before(:each) do
       visit "/users/sign_up"
+      fill_in "user[user_name]", with: "tester"
       fill_in "user[email]", with: "test@gmail.com"
       fill_in "user[password]", with: "123456"
       fill_in "user[password_confirmation]", with: "123456"
