@@ -2,8 +2,8 @@ import React from "react"
 
 class Mood extends React.Component {
 
-  setOpacity(){
-    if (this.props.currentMood == "" || this.props.currentMood == this.props.moodType ) {
+  setOpacity() {
+    if (this.props.currentMood == "" || this.props.currentMood == this.props.moodType) {
       return { opacity: 1 }
     } else {
       return { opacity: 0.2 }
@@ -17,7 +17,7 @@ class Mood extends React.Component {
         <div className="mood-item">
           <h2 className="mood-type label">{this.props.moodType}</h2>
           <figure className="image is-128x128">
-            <img src={this.props.moodImage} alt={this.props.moodType} style={ this.setOpacity() }/>
+            <img src={this.props.moodImage} alt={this.props.moodType} style={this.setOpacity()} />
           </figure>
         </div>
       </div>

@@ -14,16 +14,16 @@
                 height: 90px;
             }
         }
-
+        
         .mood-wrapper {
             display: flex;
             justify-content: space-around;
         }
-
+        
         .chuck-norris-container {
             margin-top: 32px;
         }
-
+        
         .random-meme-container {
             text-align: center;
             .random-meme-img {
@@ -33,11 +33,21 @@
                 margin-right: auto
             }
         }
-
+        
         .entertainment-container {
             text-align: center;
         }
-
+        
         .piechart {
             height: 20vh;
+        }
+        
+        .chat-container {
+            text-align: center;
+        }
+        
+        .rsc,
+        .bhRWAr {
+            margin-left: auto;
+            margin-right: auto;
         }

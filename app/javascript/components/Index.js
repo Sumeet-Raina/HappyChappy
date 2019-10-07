@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import Mood from './Mood'
 import ChuckNorrisFact from './ChuckNorrisFact'
 import RandomJoke from './RandomJoke'
@@ -10,6 +10,7 @@ import silly from '../../assets/images/silly'
 import axios from 'axios'
 import PieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
+import CustomChatbot from './CustomChatbot'
 
 class Index extends React.Component {
 
@@ -27,7 +28,7 @@ class Index extends React.Component {
   }
 
   handleClick = (mood) => {
-    let currentMood = {currentMood: mood}
+    let currentMood = { currentMood: mood }
     this.createMood(currentMood, this.setMoods)
     this.setState({
       currentMood: mood
@@ -51,7 +52,7 @@ class Index extends React.Component {
     axios
       .get('/api/moods')
       .then(response => {
-        self.setState({ 
+        self.setState({
           happy: response.data.happy,
           sad: response.data.sad,
           okay: response.data.okay,
@@ -64,7 +65,7 @@ class Index extends React.Component {
     return (
 
       <div className='mood-container'>
-        <h1 className='welcome-sentence title is-1'>Hello.
+        {/* <h1 className='welcome-sentence title is-1'>Hello.
         <br />
           How are you feeling today?</h1>
         <div className="mood-wrapper">
@@ -94,9 +95,13 @@ class Index extends React.Component {
           <ChuckNorrisFact />
           <RandomJoke />
           <RandomMeme />
+        </div> */}
+        <h1>hello happy chappy</h1>
+
+        <div className="chat-container">
+          <CustomChatbot />
         </div>
       </div>
-
     );
   }
 }
