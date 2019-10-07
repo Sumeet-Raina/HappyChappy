@@ -95,15 +95,15 @@ class Index extends React.Component {
         {
           value: 'sad', label: 'sad', trigger: () => {
             this.handleClick('sad');
-            return "Greet"
+            return "Hello"
           }
         },
       ],
 
     }, {
-      id: "Greet",
-      message: "Hello, How are you feeling today?",
-      trigger: "Today"
+      id: "Hello",
+      message: "Hello",
+      end: true
     },
   ];
 
