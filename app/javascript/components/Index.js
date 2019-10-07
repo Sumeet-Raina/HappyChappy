@@ -1,16 +1,10 @@
 import React, { Component } from "react"
-import Mood from './Mood'
 import ChuckNorrisFact from './ChuckNorrisFact'
 import RandomJoke from './RandomJoke'
 import RandomMeme from './RandomMeme'
-import sad from '../../assets/images/sad'
-import happy from '../../assets/images/happy'
-import okay from '../../assets/images/okay'
-import silly from '../../assets/images/silly'
 import axios from 'axios'
 import PieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
-
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from 'styled-components';
 
@@ -83,25 +77,40 @@ class Index extends React.Component {
   steps = [
     {
       id: "Greet",
-      message: "Hello, How are you feeling today?",
+      message: "Hello. How are you feeling today?",
       trigger: "Today"
     },
     {
       id: "Today",
       options: [
-        { value: 'happy', label: 'happy', trigger: () => { this.handleClick('happy') } },
-        { value: 'silly', label: 'silly', trigger: () => { this.handleClick('silly') } },
-        { value: 'okay', label: 'okay', trigger: () => { this.handleClick('okay') } },
         {
-          value: 'sad', label: 'sad', trigger: () => {
+          value: 'happy', label: '🙂 happy', trigger: () => {
+            this.handleClick('happy');
+            return "happyMood"
+          }
+        },
+        {
+          value: 'silly', label: '🤪 silly', trigger: () => {
+            this.handleClick('silly');
+            return 'sillyMood'
+          }
+        },
+        {
+          value: 'okay', label: '😐 okay', trigger: () => {
+            this.handleClick('okay');
+            return 'okayMood'
+          }
+        },
+        {
+          value: 'sad', label: '😔 sad', trigger: () => {
             this.handleClick('sad');
-            return "Hello"
+            return "sadMood"
           }
         },
       ],
 
     }, {
-      id: "Hello",
+      id: "happyMood",
       message: "Hello",
       end: true
     },
