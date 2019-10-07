@@ -94,8 +94,14 @@ class Index extends React.Component {
           <Mood moodType='okay' moodImage={okay} handleClick={this.handleClick} currentMood={this.state.currentMood} />
           <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} currentMood={this.state.currentMood} />
           <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} currentMood={this.state.currentMood} />
+          {() => this.state.current_mood}
         </div>
       ),
+      trigger: 'Mood'
+    }, {
+      id: "Mood",
+      message: `My mood is {previousValue}`,
+      end: true,
     }
   ];
 
