@@ -10,7 +10,9 @@ import silly from '../../assets/images/silly'
 import axios from 'axios'
 import PieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
-import CustomChatbot from './CustomChatbot'
+
+import ChatBot from "react-simple-chatbot";
+import { ThemeProvider } from 'styled-components';
 
 class Index extends React.Component {
 
@@ -61,6 +63,47 @@ class Index extends React.Component {
         });
       })
   }
+
+
+  theme = {
+    background: '#f5f8fb',
+    fontFamily: 'Helvetica Neue',
+    headerBgColor: '#EF6C00',
+    headerFontColor: '#fff',
+    headerFontSize: '15px',
+    botBubbleColor: '#EF6C00',
+    botFontColor: '#fff',
+    userBubbleColor: '#fff',
+    userFontColor: '#4a4a4a',
+
+  };
+
+
+
+  steps = [
+    {
+      id: "Greet",
+      message: "Hello, How are you feeling today?",
+      trigger: "Today"
+    },
+    {
+      id: "Today",
+      component: (
+        <div className="mood-wrapper">
+          <Mood moodType='happy' moodImage={happy} handleClick={this.handleClick} currentMood={this.state.currentMood} />
+          <Mood moodType='okay' moodImage={okay} handleClick={this.handleClick} currentMood={this.state.currentMood} />
+          <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} currentMood={this.state.currentMood} />
+          <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} currentMood={this.state.currentMood} />
+        </div>
+      ),
+    }
+  ];
+
+  config = {
+    width: "70vw",
+    height: "80vh",
+
+  };
   render() {
     return (
 
@@ -99,7 +142,9 @@ class Index extends React.Component {
         <h1>hello happy chappy</h1>
 
         <div className="chat-container">
-          <CustomChatbot />
+          <ThemeProvider theme={this.theme}>
+            <ChatBot steps={this.steps}  {...this.config} />
+          </ThemeProvider >
         </div>
       </div>
     );
