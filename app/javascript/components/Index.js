@@ -96,6 +96,8 @@ class Index extends React.Component {
         {
           value: 'happy', label: '🙂 happy', trigger: () => {
             this.handleClick('happy');
+            console.log(this.state)
+            console.log("-------------------")
             return "happyMood"
           }
         },
@@ -139,46 +141,39 @@ class Index extends React.Component {
       id: 'jokeProposition',
       component: (
         <RandomJoke />
-      )
+      ),
+      trigger: "Diary"
     },
     {
       id: 'memeProposition',
       component: (
         <RandomMeme />
-      )
+      ),
+      trigger: "Diary"
     },
     {
       id: 'chuckProposition',
       component: (
         <ChuckNorrisFact />
-      )
-    }
-  ];
-
-  config = {
-    width: "70vw",
-    height: "80vh",
-
-  };
-  render() {
-    return (
-
-      <div className='mood-container'>
-        {/* <h1 className='welcome-sentence title is-1'>Hello.
-        <br />
-          How are you feeling today?</h1>
-        <div className="mood-wrapper">
-          <Mood moodType='happy' moodImage={happy} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
-          <Mood moodType='okay' moodImage={okay} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
-          <Mood moodType='silly' moodImage={silly} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
-          <Mood moodType='sad' moodImage={sad} handleClick={this.handleClick} currentMood={this.state.currentMood}/>
-        </div>
+      ),
+      trigger: "Diary"
+    }, {
+      id: 'Diary',
+      message: 'Describe how you felt today:',
+      trigger: 'DiaryEntry'
+    }, {
+      id: 'DiaryEntry',
+      user: true,
+      trigger: 'Statistics'
+    }, {
+      id: 'Statistics',
+      component: (
         <PieChart
           data={[
             { title: 'Okay', value: this.state.okay, color: '#C13C37' },
             { title: 'Happy', value: this.state.happy, color: '#E38627' },
             { title: 'Silly', value: this.state.silly, color: '#6A4335' },
-            { title: 'Sad', value: this.state.sad, color: '#6A2135' }
+            { title: 'Sad', value: 0, color: '#6A2135' }
           ]}
           style={{ height: '15vw' }}
           label
@@ -190,13 +185,21 @@ class Index extends React.Component {
             fill: '#121212'
           }}
         />
-        <div className="entertainment-container">
-          <ChuckNorrisFact />
-          <RandomJoke />
-          <RandomMeme />
-        </div> */}
-        <h1>hello happy chappy</h1>
+      ),
+      end: true
+    },
+  ];
 
+  config = {
+    width: "70vw",
+    height: "80vh",
+
+  };
+  render() {
+    return (
+
+      <div className='mood-container'>
+        <h1>hello happy chappy</h1>
         <div className="chat-container">
           <ThemeProvider theme={this.theme}>
             <ChatBot steps={this.steps}  {...this.config} />
