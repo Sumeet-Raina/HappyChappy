@@ -3,7 +3,7 @@ import ChuckNorrisFact from './ChuckNorrisFact'
 import RandomJoke from './RandomJoke'
 import RandomMeme from './RandomMeme'
 import axios from 'axios'
-import PieChart from 'react-minimal-pie-chart';
+import PieChart from 'react-simple-pie-chart';
 import { passCsrfToken } from '../util/helpers'
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from 'styled-components';
