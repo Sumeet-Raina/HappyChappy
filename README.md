@@ -17,7 +17,7 @@ Things you may want to cover:
 * Database initialization
 
 * How to run the test suite
-`rails spec`
+
 
 * Services (job queues, cache servers, search engines, etc.)
 
@@ -32,7 +32,7 @@ Feeling annoyed and want to wallow in it? Feeling great and would like to share 
 # How to run it (is it a command line tool?) #
 
 # How to run the tests #
-
+ `rails spec`
 # Tech Stack #
 
 ## Back-end ##
