@@ -3,6 +3,7 @@ import Mood from './Mood'
 import ChuckNorrisFact from './ChuckNorrisFact'
 import RandomJoke from './RandomJoke'
 import RandomMeme from './RandomMeme'
+import Fortune from './Fortune'
 import sad from '../../assets/images/sad'
 import happy from '../../assets/images/happy'
 import okay from '../../assets/images/okay'
@@ -94,6 +95,7 @@ class Index extends React.Component {
           <ChuckNorrisFact />
           <RandomJoke />
           <RandomMeme />
+          <Fortune />
         </div>
       </div>
 
