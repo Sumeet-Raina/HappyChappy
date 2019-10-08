@@ -13,12 +13,12 @@ class RandomJoke extends React.Component {
   }
 
   getJoke() {
-    axios.get('https://official-joke-api.appspot.com/jokes/random')
+    axios.get('https://sv443.net/jokeapi/category/Miscellaneous?blacklistFlags=religious,political,nsfw')
       .then(response => {
         console.log(response)
         this.setState({
           setup: response.data.setup,
-          punchline: response.data.punchline,
+          delivery: response.data.delivery,
         });
       }).catch(error => {
         console.log(error);
@@ -30,7 +30,7 @@ class RandomJoke extends React.Component {
       <div className="random-joke-container">
         <h1 className='random-joke-title label'>Random Joke</h1>
         <h3 className='random-joke-setup subtitle'>{'"' + this.state.setup + '"'}</h3>
-        <h3 className='random-joke-punchline subtitle'>{'"' + this.state.punchline + '"'}</h3>
+        <h3 className='random-joke-delivery subtitle'>{'"' + this.state.delivery + '"'}</h3>
         <button onClick={this.getJoke}
           type="button"
           className="random-joke-button button is-info">
