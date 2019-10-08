@@ -12,10 +12,10 @@ import { SIGXFSZ } from "constants";
 class Index extends React.Component {
 
   state = {
-    happy: 0,
-    sad: 0,
-    silly: 0,
-    okay: 0,
+    happy: 25,
+    sad: 25,
+    silly: 25,
+    okay: 25,
     currentMood: ""
   }
 
@@ -87,114 +87,79 @@ class Index extends React.Component {
     return `${advices[index]}`
   }
 
-
   steps = [
     {
-      id: "Greet",
-      message: "Hello. How are you feeling today?",
-      trigger: "Statistics"
+      id: '1',
+      message: 'Hello! Great to have you here!',
+      trigger: '2',
     },
     {
-      id: "Today",
+      id: '2',
+      message: 'How are you feeling today?',
+      trigger: '3'
+    },
+    {
+      id: '3',
       options: [
         {
-          value: 'happy', label: '🙂 happy', trigger: () => {
+          value: "😊 happy", label: 'happy', trigger: () => {
             this.handleClick('happy');
-            console.log(this.state)
-            console.log("-------------------")
-            return "happyMood"
+            return '4'
           }
         },
         {
-          value: 'silly', label: '🤪 silly', trigger: () => {
-            this.handleClick('silly');
-            return 'sillyMood'
-          }
-        },
-        {
-          value: 'okay', label: '😐 okay', trigger: () => {
+          value: "😐 okay", label: 'okay', trigger: () => {
             this.handleClick('okay');
-            return 'okayMood'
+            return '5'
           }
         },
         {
-          value: 'sad', label: '😔 sad', trigger: () => {
-            this.handleClick('sad');
-            return "sadMood"
+          value: "🤪 silly", label: 'silly', trigger: () => {
+            this.handleClick('silly');
+            return '6'
           }
         },
-      ],
-
-    }, {
-      id: "happyMood",
-      message: "That’ great! Share your good vibes,send a happy text to someone you like 📱",
-      trigger: "chuckProposition"
-    }, {
-      id: "sadMood",
-      message: "It’s okay to feel sad. Be brave, reachout to someone or write your thoughts down on paper.",
-      trigger: "jokeProposition"
-    }, {
-      id: "sillyMood",
-      message: "Do a silly dance 💃🏻 🕺🏾",
-      trigger: "memeProposition"
-    }, {
-      id: "okayMood",
-      message: "Close your eyes and take 10 deep breaths with a smile on your face and see how you feel. 🌬",
-      trigger: "jokeProposition"
-    }, {
-      id: 'jokeProposition',
-      component: (
-        <RandomJoke />
-      ),
-      trigger: "Diary"
+        {
+          value: "😔 sad", label: 'sad', trigger: () => {
+            this.handleClick('sad');
+            return '7'
+          }
+        }
+      ]
     },
     {
-      id: 'memeProposition',
-      component: (
-        <RandomMeme />
-      ),
-      trigger: "Diary"
+      id: '4',
+      message: "That's great!Share your good vibes, send a text to someone you like.",
+      trigger: '8'
     },
     {
-      id: 'chuckProposition',
+      id: '8',
+      options: [
+        { value: 1, label: 'Chuck Norris Fact', trigger: 'chuck' },
+        { value: 2, label: 'Random Joke', trigger: 'joke' },
+        { value: 3, label: 'Random Meme', trigger: 'meme' },
+      ]
+    }, {
+      id: 'chuck',
       component: (
         <ChuckNorrisFact />
       ),
-      trigger: "Diary"
+      end: true
     }, {
-      id: 'Diary',
-      message: 'Describe how you felt today:',
-      trigger: 'DiaryEntry'
-    }, {
-      id: 'DiaryEntry',
-      user: true,
-      trigger: 'Statistics'
-    }, {
-      id: 'Statistics',
+      id: 'joke',
       component: (
-        <div>
-          <PieChart
-            data={[
-              { title: 'Happy', value: 25, color: 'yellow' },
-              { title: 'Sad', value: 25, color: 'blue' },
-              { title: 'Okay', value: 25, color: 'green' },
-              { title: 'Silly', value: 25, color: 'orange' }
-            ]}
-            label
-            labelStyle={{
-              fontSize: '5px',
-              fontFamily: 'sans-serif'
-            }}
-            radius={42}
-            labelPosition={112}
-            animate
-          />
-        </div>
-
+        <RandomJoke />
       ),
       end: true
-    },
-  ];
+    }, {
+      id: 'meme',
+      component: (
+        <RandomMeme />
+      ),
+      end: true
+    }
+  ]
+
 
   config = {
     width: "70vw",
