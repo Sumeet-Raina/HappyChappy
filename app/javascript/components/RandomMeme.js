@@ -11,6 +11,10 @@ class RandomMeme extends React.Component {
     this.getMeme = this.getMeme.bind(this)
   }
 
+  componentDidMount(){
+    this.getMeme()
+  }
+
   getMeme() {
     axios.get('https://meme-api.herokuapp.com/gimme')
       .then(response => {
