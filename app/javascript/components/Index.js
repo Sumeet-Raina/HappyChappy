@@ -216,7 +216,7 @@ class Index extends React.Component {
     return (
 
       <div className='mood-container'>
-        <h1>hello happy chappy</h1>
+        <h1 className='title'>hello happy chappy</h1>
         <div className="chat-container">
           <ThemeProvider theme={this.theme}>
             <ChatBot userAvatar={user_avatar} botAvatar={bot} headerTitle='Happy Chappy' happy={this.state.happy} steps={this.steps} {...this.config} />
