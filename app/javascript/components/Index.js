@@ -13,6 +13,7 @@ import { SIGXFSZ } from "constants";
 
 class Index extends React.Component {
 
+
   state = {
     happy: 25,
     sad: 25,
