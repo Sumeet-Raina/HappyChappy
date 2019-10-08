@@ -3,10 +3,11 @@ import ChuckNorrisFact from './ChuckNorrisFact'
 import RandomJoke from './RandomJoke'
 import RandomMeme from './RandomMeme'
 import axios from 'axios'
-import PieChart from 'react-simple-pie-chart';
+import PieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from 'styled-components';
+import { SIGXFSZ } from "constants";
 
 class Index extends React.Component {
 
@@ -42,6 +43,10 @@ class Index extends React.Component {
       .catch(error => {
         console.log(error)
       })
+  }
+
+  getHappy = () => {
+    return this.state.happy
   }
 
   setMoods(self) {
@@ -83,12 +88,11 @@ class Index extends React.Component {
   }
 
 
-
   steps = [
     {
       id: "Greet",
       message: "Hello. How are you feeling today?",
-      trigger: "Today"
+      trigger: "Statistics"
     },
     {
       id: "Today",
@@ -168,18 +172,25 @@ class Index extends React.Component {
     }, {
       id: 'Statistics',
       component: (
-        <>
-
+        <div>
           <PieChart
             data={[
-              { title: 'Okay', value: this.state.okay, color: '#C13C37' },
-              { title: 'Happy', value: this.state.happy, color: '#E38627' },
-              { title: 'Silly', value: this.state.silly, color: '#6A4335' },
-              { title: 'Sad', value: this.state.sad, color: '#6A2135' }
+              { title: 'Happy', value: 25, color: 'yellow' },
+              { title: 'Sad', value: 25, color: 'blue' },
+              { title: 'Okay', value: 25, color: 'green' },
+              { title: 'Silly', value: 25, color: 'orange' }
             ]}
+            label
+            labelStyle={{
+              fontSize: '5px',
+              fontFamily: 'sans-serif'
+            }}
+            radius={42}
+            labelPosition={112}
+            animate
           />
+        </div>
 
-        </>
       ),
       end: true
     },
@@ -197,7 +208,7 @@ class Index extends React.Component {
         <h1>hello happy chappy</h1>
         <div className="chat-container">
           <ThemeProvider theme={this.theme}>
-            <ChatBot steps={this.steps} {...this.config} />
+            <ChatBot headerTitle='Happy Chappy' happy={this.state.happy} steps={this.steps} {...this.config} />
           </ThemeProvider >
         </div>
       </div>
