@@ -168,17 +168,18 @@ class Index extends React.Component {
     }, {
       id: 'Statistics',
       component: (
-        <PieChart
+        <>
 
-          data={[
-            { title: 'Okay', value: this.state.okay, color: '#C13C37' },
-            { title: 'Happy', value: this.state.happy, color: '#E38627' },
-            { title: 'Silly', value: this.state.silly, color: '#6A4335' },
-            { title: 'Sad', value: this.state.sad, color: '#6A2135' }
-          ]}
+          <PieChart
+            data={[
+              { title: 'Okay', value: this.state.okay, color: '#C13C37' },
+              { title: 'Happy', value: this.state.happy, color: '#E38627' },
+              { title: 'Silly', value: this.state.silly, color: '#6A4335' },
+              { title: 'Sad', value: this.state.sad, color: '#6A2135' }
+            ]}
+          />
 
-
-        />
+        </>
       ),
       end: true
     },
@@ -196,7 +197,7 @@ class Index extends React.Component {
         <h1>hello happy chappy</h1>
         <div className="chat-container">
           <ThemeProvider theme={this.theme}>
-            <ChatBot steps={this.steps}  {...this.config} />
+            <ChatBot steps={this.steps} {...this.config} />
           </ThemeProvider >
         </div>
       </div>
