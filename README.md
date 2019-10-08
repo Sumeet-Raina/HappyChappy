@@ -29,8 +29,9 @@ Feeling annoyed and want to wallow in it? Feeling great and would like to share 
 
 # How to install it 
  `git clone repo_name`
-# How to run it (is it a command line tool?) #
-
+ `bundle install`
+# How to run it #
+ 
 # How to run the tests #
  `rails spec`
 # Tech Stack #
