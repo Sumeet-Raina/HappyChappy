@@ -178,6 +178,11 @@ class Index extends React.Component {
       trigger: '8'
     }, {
       id: 'end',
+      options: [
+        { value: 1, label: 'See statistics', trigger: 'stats' },
+      ],
+    }, {
+      id: 'stats',
       component: (
         <PieChart
           data={[
