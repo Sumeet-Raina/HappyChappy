@@ -1,4 +1,4 @@
- # require "rails_helper"
+# require "rails_helper"
 
 # RSpec.feature "Entertainment", type: :feature do
 #   describe "Random Meme" do
@@ -13,4 +13,3 @@
 #     end
 #   end
 # end
-

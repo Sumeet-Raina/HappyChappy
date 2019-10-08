@@ -71,4 +71,3 @@
 #     expect(page).to have_content("User name is too short (minimum is 4 characters)")
 #   end
 # end
-
