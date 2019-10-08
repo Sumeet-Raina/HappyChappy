@@ -131,6 +131,10 @@ class Index extends React.Component {
       id: '4',
       message: "That's great!Share your good vibes, send a text to someone you like.",
       trigger: '8'
+    }, {
+      id: '5',
+      message: 'Close your eyes and take 10 deep breaths with a smile on your face and see how you feel.',
+      trigger: '8'
     },
     {
       id: '8',
@@ -144,17 +148,51 @@ class Index extends React.Component {
       component: (
         <ChuckNorrisFact />
       ),
-      end: true
+      trigger: 'end'
     }, {
       id: 'joke',
       component: (
         <RandomJoke />
       ),
-      end: true
+      trigger: 'end'
     }, {
       id: 'meme',
       component: (
         <RandomMeme />
+      ),
+      trigger: 'end'
+    }, {
+      id: '6',
+      message: 'Wohoo! Do a silly dance.',
+      trigger: '9'
+    }, {
+      id: '9',
+      message: 'What would you like to check?',
+      trigger: '8'
+    }, {
+      id: '7',
+      message: 'It’s okay to feel sad. Be brave, reachout to someone or write your thoughts down on paper.',
+      trigger: '8'
+    }, {
+      id: 'end',
+      component: (
+        <PieChart
+          data={[
+            { title: 'Okay', value: this.state.okay, color: '#C13C37' },
+            { title: 'Happy', value: this.state.happy, color: '#E38627' },
+            { title: 'Silly', value: this.state.silly, color: '#6A4335' },
+            { title: 'Sad', value: this.state.sad, color: '#6A2135' }
+          ]}
+          style={{ height: '15vw' }}
+          label
+          animate
+          labelStyle={{
+            fontSize: '10px',
+            fontColor: '#FFFFFF',
+            fontFamily: 'sans-serif',
+            fill: '#121212'
+          }}
+        />
       ),
       end: true
     }
@@ -182,3 +220,5 @@ class Index extends React.Component {
 }
 
 export default Index
+
+
