@@ -81,8 +81,8 @@ class Index extends React.Component {
   };
 
   sadMoodAdvice() {
-    const advices = ["It’s okay to feel sad.", "Remember it’s temporary.",
-      "It’s normal to feel sad.", "What the one way you can take care of yourself right now?", "It’s okay to feel sad. Be brave, reachout to someone or write your thoughts down on paper."
+    const advices = ["It’s okay to feel sad.", "Remember that it's temporary.",
+      "It’s normal to feel sad.", "What's the one way you can take care of yourself right now?", "It’s okay to feel sad. Be brave, reach out to someone, or write your thoughts down."
     ]
 
     const index = Math.floor(Math.random * advices.length)
@@ -132,11 +132,11 @@ class Index extends React.Component {
     },
     {
       id: '4',
-      message: "That's great!Share your good vibes, send a text to someone you like.",
+      message: "That's great! Why not share your good vibes, and send a nice text to someone you like.",
       trigger: '8'
     }, {
       id: '5',
-      message: 'Close your eyes and take 10 deep breaths with a smile on your face and see how you feel.',
+      message: 'Close your eyes and take 10 deep breaths with a smile on your face, and then see how you feel.',
       trigger: '8'
     },
     {
@@ -166,20 +166,20 @@ class Index extends React.Component {
       trigger: 'end'
     }, {
       id: '6',
-      message: 'Wohoo! Do a silly dance.',
+      message: 'Woohoo! Me too! Let\'s do a silly dance.',
       trigger: '9'
     }, {
       id: '9',
-      message: 'What would you like to check?',
+      message: "Hit the button for what you'd like me to show you!",
       trigger: '8'
     }, {
       id: '7',
-      message: 'It’s okay to feel sad. Be brave, reachout to someone or write your thoughts down on paper.',
+      message: "It’s okay to feel sad. Be brave and reach out to someone, or write your thoughts down on paper. Hit the button you'd most like me to show you",
       trigger: '8'
     }, {
       id: 'end',
       options: [
-        { value: 1, label: 'See statistics', trigger: 'stats' },
+        { value: 1, label: 'view your mood chart', trigger: 'stats' },
       ],
     }, {
       id: 'stats',
