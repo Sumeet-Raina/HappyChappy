@@ -10,9 +10,10 @@ import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from 'styled-components';
 import ChatRoom from './ChatRoom'
 import MoodPieChart from "./MoodPieChart";
+import RandomSadAdvice from './RandomSadAdvice'
 import { theme } from '../constants';
 import { config } from '../constants';
-import { steps } from '../constants';
+
 
 class App extends React.Component {
 
@@ -152,7 +153,7 @@ class App extends React.Component {
       trigger: '8'
     }, {
       id: '7',
-      message: "It’s okay to feel sad. Be brave and reach out to someone, or write your thoughts down on paper. Hit the button you'd most like me to show you",
+      component: <RandomSadAdvice />,
       trigger: '8'
     }, {
       id: 'end',
@@ -169,7 +170,7 @@ class App extends React.Component {
     }, {
       id: 'chat',
       component: (
-        <ChatRoom currentMood={this.state.currentMood} getMood={this.getMood}/>
+        <ChatRoom currentMood={this.state.currentMood} getMood={this.getMood} />
       ),
       end: true
     }
