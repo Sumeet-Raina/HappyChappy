@@ -11,6 +11,7 @@ import { ThemeProvider } from 'styled-components';
 import ChatRoom from './ChatRoom'
 import MoodPieChart from "./MoodPieChart";
 import RandomSadAdvice from './RandomSadAdvice'
+import RandomOkayAdvice from './RandomOkayAdvice'
 import { theme } from '../constants';
 import { config } from '../constants';
 
@@ -115,7 +116,7 @@ class App extends React.Component {
       trigger: '8'
     }, {
       id: '5',
-      message: 'Close your eyes and take 10 deep breaths with a smile on your face, and then see how you feel.',
+      component: <RandomOkayAdvice />,
       trigger: '8'
     },
     {
