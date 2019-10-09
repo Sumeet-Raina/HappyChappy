@@ -1,5 +1,3 @@
-export const API_ROOT = 'http://localhost:3000';
-export const API_WS_ROOT = 'ws://localhost:3000/cable';
 export const theme = {
   background: '#f5f8fb',
   fontFamily: 'Helvetica Neue',
@@ -21,4 +19,3 @@ export const config = {
 export const sadAdvices = ["It’s okay to feel sad.", "Remember that it's temporary.",
   "It’s normal to feel sad.", "What's the one way you can take care of yourself right now?", "It’s okay to feel sad. Be brave, reach out to someone, or write your thoughts down."
 ]
-
