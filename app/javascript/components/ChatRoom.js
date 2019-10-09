@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActionCableConsumer } from 'react-actioncable-provider';
 import axios from 'axios';
-import Messages from './Messages'
+import MessageFeed from './MessageFeed'
 
 class ChatRoom extends React.Component {
   state = {
@@ -15,28 +15,36 @@ class ChatRoom extends React.Component {
   }
 
   setConversation = () => {
-    if (this.props.getMood() == "okay") {
+    if (this.mood('okay')) {
       this.setState({activeConversation: 1})
-    } else if (this.props.getMood() == "happy") {
+    } else if (this.mood('happy')) {
       this.setState({activeConversation: 2})
-    } else if (this.props.getMood() == "silly") {
+    } else if (this.mood('silly')) {
       this.setState({activeConversation: 3})
     } else {
       this.setState({activeConversation: 4})
     }
   }
 
+  mood = (currentMood) => {
+    this.props.getMood() == currentMood
+  }
+
   handleReceivedMessage = response => {
     let messages = this.state.messages
-    if(messages.every((message) => {
-      return message.id != response.message.id
-    })) {
+    if(this.isAlreadyStored(messages, response)) {
       messages.push(response.message)
     }
     this.setState({
       messages: messages
     })
   };
+
+  isAlreadyStored = (messages, response) => {
+    return messages.every((message) => {
+      return message.id != response.message.id
+    })
+  }
 
   handleChange = e => {
     this.setState({ text: e.target.value });
@@ -61,8 +69,9 @@ class ChatRoom extends React.Component {
           channel={{ channel: 'MessagesChannel', conversation: this.state.activeConversation }}
           onReceived={this.handleReceivedMessage}
         />
-
-        <Messages messages={this.state.messages} />
+        <div className="messageFeed">
+          <MessageFeed messages={this.state.messages} />
+        </div>
 
         <div className="newMessageForm">
           <form onSubmit={this.handleSubmit}>

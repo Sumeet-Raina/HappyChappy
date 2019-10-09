@@ -5,7 +5,6 @@ import RandomMeme from './RandomMeme'
 import FortuneCookie from './FortuneCookie'
 import axios from 'axios'
 import bot from '../../assets/images/bot_avatar'
-import PieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from 'styled-components';
