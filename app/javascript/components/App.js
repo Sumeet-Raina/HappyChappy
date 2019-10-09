@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import ChuckNorrisFact from './ChuckNorrisFact'
 import RandomJoke from './RandomJoke'
 import RandomMeme from './RandomMeme'
+import FortuneCookie from './FortuneCookie'
 import axios from 'axios'
 import bot from '../../assets/images/bot_avatar'
 import PieChart from 'react-minimal-pie-chart';
@@ -123,6 +124,7 @@ class App extends React.Component {
         { value: 1, label: 'Chuck Norris Fact', trigger: 'chuck' },
         { value: 2, label: 'Random Joke', trigger: 'joke' },
         { value: 3, label: 'Random Meme', trigger: 'meme' },
+        { value: 4, label: 'Fortune Cookie', trigger: 'fortune' },
       ]
     }, {
       id: 'chuck',
@@ -140,6 +142,12 @@ class App extends React.Component {
       id: 'meme',
       component: (
         <RandomMeme />
+      ),
+      trigger: 'end'
+    }, {
+      id: 'fortune',
+      component: (
+        <FortuneCookie />
       ),
       trigger: 'end'
     }, {
