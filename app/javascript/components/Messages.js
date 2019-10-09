@@ -7,7 +7,7 @@ class ChatRoom extends React.Component {
       <ul>
         {
           this.props.messages.map(message => {
-            return <li key={message.id}>{message.text}</li>;
+            return <li key={message.id}>{message.user_name}: {message.text}</li>;
           })
         }
       </ul>

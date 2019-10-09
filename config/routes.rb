@@ -5,11 +5,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     resources :moods, only: [:index, :create]
+    resources :messages, only: [:create]
   end
-
-  resources :conversations, only: [:index, :create]
-  resources :messages, only: [:create]
-
+  
   mount ActionCable.server => '/cable'
 
   root 'page#index'

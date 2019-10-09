@@ -1,30 +1,45 @@
 import React from 'react';
 import { ActionCableConsumer } from 'react-actioncable-provider';
-import { API_ROOT } from '../constants';
 import axios from 'axios';
 import Messages from './Messages'
 
 class ChatRoom extends React.Component {
   state = {
     messages: [],
-    activeConversation: 2,
+    activeConversation: 1,
     text: ""
   };
+
+  componentDidMount() {
+    this.setConversation()
+  }
+
+  setConversation = () => {
+    if (this.props.getMood() == "okay") {
+      this.setState({activeConversation: 1})
+    } else if (this.props.getMood() == "happy") {
+      this.setState({activeConversation: 2})
+    } else if (this.props.getMood() == "silly") {
+      this.setState({activeConversation: 3})
+    } else {
+      this.setState({activeConversation: 4})
+    }
+  }
 
   handleReceivedMessage = response => {
     let messages = this.state.messages
     if(messages.every((message) => {
-      return message.id != response.id
+      return message.id != response.message.id
     })) {
-      messages.push(response)
+      messages.push(response.message)
     }
     this.setState({
       messages: messages
     })
-    console.log(this.state.messages)
   };
 
   handleChange = e => {
+    console.log(this.state)
     this.setState({ text: e.target.value });
   };
 
@@ -32,7 +47,7 @@ class ChatRoom extends React.Component {
     e.preventDefault();
 
     axios
-      .post(`${API_ROOT}/messages`, {
+      .post(`/api/messages`, {
         text: this.state.text,
         conversation_id: this.state.activeConversation
       })
@@ -48,10 +63,11 @@ class ChatRoom extends React.Component {
           onReceived={this.handleReceivedMessage}
         />
 
-        <Messages messages={this.state.messages}/>
+        <Messages messages={this.state.messages} />
 
         <div className="newMessageForm">
           <form onSubmit={this.handleSubmit}>
+          <label>{this.props.getMood().toUpperCase()} CHAT!</label>
             <label>New Message:</label>
             <br />
             <input
