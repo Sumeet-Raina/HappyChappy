@@ -12,7 +12,7 @@ Feeling annoyed and want to wallow in it? Feeling great and would like to share 
 # How to run the tests #
  `rails spec`
 # Database creation #
-  `rails db:migrate`
+  `rails db:setup`
 # Tech Stack #
 
 ## Back-end ##
@@ -47,16 +47,30 @@ So that I can access my account
 I want to be able to login  
 
 As a user  
-So that I can monitor my moods  
-I want to be able to create a new record when I login
+I want bot to ask me about my mood   
+and show me mood options
 
 As a user  
-when I login  
-I want to be able to display a response  
+when bot prompts mood options   
+I want to be able to select a mood as response 
 
 
 As a user  
-when I login  
-I want to be able to display a response-count  
+when I select a mood as response    
+I want to be bot to suggest options to help with my current mood
 
+As a user   
+when I select view piechart option     
+I want to be able to see mood pie-chart  
 
+As a user   
+when I select view random jokes option     
+I want to be able to see random jokes   
+
+As a user     
+when I select view random memes option      
+I want to be able to see random memes   
+
+As a user     
+when I select view Chuck Noris Fact option      
+I want to be able to see random Chuck Noris Facts

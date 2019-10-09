@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import ChuckNorrisFact from './ChuckNorrisFact'
 import RandomJoke from './RandomJoke'
 import RandomMeme from './RandomMeme'
+import FortuneCookie from './FortuneCookie'
 import axios from 'axios'
 import bot from '../../assets/images/bot_avatar'
 import PieChart from 'react-minimal-pie-chart';
@@ -182,7 +183,6 @@ class App extends React.Component {
 
 
   render() {
-    console.log('HELLO');
     return (
 
       <div className='mood-container'>
