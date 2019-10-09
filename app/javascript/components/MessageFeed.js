@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ChatRoom extends React.Component {
+class MessageFeed extends React.Component {
 
   render = () => {
     return (
@@ -16,4 +16,4 @@ class ChatRoom extends React.Component {
   };
 }
 
-export default ChatRoom;
+export default MessageFeed;

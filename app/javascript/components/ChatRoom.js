@@ -1,42 +1,58 @@
 import React from 'react';
 import { ActionCableConsumer } from 'react-actioncable-provider';
 import axios from 'axios';
-import Messages from './Messages'
+import MessageFeed from './MessageFeed'
 
 class ChatRoom extends React.Component {
   state = {
     messages: [],
     activeConversation: 1,
-    text: ""
+    text: "",
+    currentMood: "happy"
   };
 
   componentDidMount() {
+    this.setMood()
     this.setConversation()
   }
 
+  setMood() {
+    this.setState({
+      currentMood: this.getMood
+    })
+  }
+
   setConversation = () => {
-    if (this.props.getMood() == "okay") {
-      this.setState({ activeConversation: 1 })
-    } else if (this.props.getMood() == "happy") {
-      this.setState({ activeConversation: 2 })
-    } else if (this.props.getMood() == "silly") {
-      this.setState({ activeConversation: 3 })
+    if (this.isMood('okay')) {
+      this.setState({activeConversation: 1})
+    } else if (this.isMood('happy')) {
+      this.setState({activeConversation: 2})
+    } else if (this.isMood('silly')) {
+      this.setState({activeConversation: 3})
     } else {
       this.setState({ activeConversation: 4 })
     }
   }
 
+  isMood = (mood) => {
+    this.state.currentMood == mood
+  }
+
   handleReceivedMessage = response => {
     let messages = this.state.messages
-    if (messages.every((message) => {
-      return message.id != response.message.id
-    })) {
+    if(this.isAlreadyStored(messages, response)) {
       messages.push(response.message)
     }
     this.setState({
       messages: messages
     })
   };
+
+  isAlreadyStored = (messages, response) => {
+    return messages.every((message) => {
+      return message.id != response.message.id
+    })
+  }
 
   handleChange = e => {
     this.setState({ text: e.target.value });
@@ -55,14 +71,14 @@ class ChatRoom extends React.Component {
 
   render = () => {
     return (
-      <div className="conversationsList box">
-
+      <div className={"chat-room-" + this.state.currentMood}>
         <ActionCableConsumer
           channel={{ channel: 'MessagesChannel', conversation: this.state.activeConversation }}
           onReceived={this.handleReceivedMessage}
         />
-
-        <Messages messages={this.state.messages} />
+        <div className="messageFeed">
+          <MessageFeed messages={this.state.messages} />
+        </div>
 
         <div className="newMessageForm">
           <form onSubmit={this.handleSubmit}>
