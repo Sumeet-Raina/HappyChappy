@@ -7,4 +7,3 @@ test:
 production:
   adapter: redis
   url: redis://redistogo:407ef20c07ad961cc478fa71d1101c3e@porgy.redistogo.com:11683/
-  channel_prefix: HappyChappy_production

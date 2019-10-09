@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.configure do
-  config.web_socket_server_url = 'redis://redistogo:407ef20c07ad961cc478fa71d1101c3e@porgy.redistogo.com:11683/' 
+  config.web_socket_server_url = "wss://action-cable-example.herokuapp.com/cable" 
 
   config.action_cable.allowed_request_origins = ['http://happy-chappy.herokuapp.com/', 'https://happy-chappy.herokuapp.com/']
 

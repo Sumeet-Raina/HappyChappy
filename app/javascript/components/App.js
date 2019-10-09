@@ -186,7 +186,6 @@ class App extends React.Component {
 
 
   render() {
-    console.log('HELLO');
     return (
 
       <div className='mood-container'>
