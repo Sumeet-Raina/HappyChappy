@@ -185,7 +185,6 @@ class App extends React.Component {
       component: (
         <CustomComponent
           data={this.state}
-          getUpdatedStateFromParent={() => this.state}
         />),
       trigger: 'chat'
     }, {
@@ -219,16 +218,57 @@ class App extends React.Component {
 }
 
 class CustomComponent extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = this.props.data;
+
+  state = {
+    happy: 0,
+    sad: 0,
+    silly: 0,
+    okay: 0,
+    currentMood: ""
   }
 
-  UNSAFE_componentWillMount() {
-    this.setState(this.props.getUpdatedStateFromParent());
+  componentDidMount() {
+    passCsrfToken(document, axios)
+    this.setMoods(this)
+  }
+
+  handleClick = (mood) => {
+    let currentMood = { currentMood: mood }
+    this.createMood(currentMood, this.setMoods)
+    this.setState({
+      currentMood: mood
+    })
+  }
+
+  createMood(currentMood, callback) {
+    axios
+      .post('/api/moods', currentMood)
+      .then(response => {
+        console.log(response)
+        console.log(response.data)
+        callback(this)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
+  setMoods(self) {
+    axios
+      .get('/api/moods')
+      .then(response => {
+        self.setState({
+          happy: response.data.happy,
+          sad: response.data.sad,
+          okay: response.data.okay,
+          silly: response.data.silly,
+          currentMood: response.data.currentMood
+        });
+      })
   }
 
   render() {
+    console.log(this.state)
     return (
       < PieChart
         data={
