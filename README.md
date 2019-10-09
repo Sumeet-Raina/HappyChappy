@@ -56,7 +56,7 @@ I want to be able to select a mood as response
 
 
 As a user  
-when I login  
-I want to be able to display a response-count  
+when I select a mood as response    
+I want to be bot to suggest options to help with my current mood
 
 
