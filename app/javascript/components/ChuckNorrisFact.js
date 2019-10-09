@@ -28,7 +28,7 @@ class ChuckNorrisFact extends React.Component {
         <button onClick={this.getFact}
           type="button"
           className="chuck-norris-button button is-info">
-          More Chuck Fact Please!
+          refresh fact
         </button>
       </div>
     );

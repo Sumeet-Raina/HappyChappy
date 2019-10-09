@@ -105,25 +105,25 @@ class Index extends React.Component {
       id: '3',
       options: [
         {
-          value: "😊 happy", label: 'happy', trigger: () => {
+          value: "😊 happy", label: '😊', trigger: () => {
             this.handleClick('happy');
             return '4'
           }
         },
         {
-          value: "😐 okay", label: 'okay', trigger: () => {
+          value: "😐 okay", label: '😐', trigger: () => {
             this.handleClick('okay');
             return '5'
           }
         },
         {
-          value: "🤪 silly", label: 'silly', trigger: () => {
+          value: "🤪 silly", label: '🤪 ', trigger: () => {
             this.handleClick('silly');
             return '6'
           }
         },
         {
-          value: "😔 sad", label: 'sad', trigger: () => {
+          value: "😔 sad", label: '😔', trigger: () => {
             this.handleClick('sad');
             return '7'
           }
@@ -132,14 +132,17 @@ class Index extends React.Component {
     },
     {
       id: '4',
-      message: "That's great! Why not share your good vibes, and send a nice text to someone you like.",
+      message: "That's great! Why not share your good vibes, and send a nice text to someone you like?",
+      trigger: '10'
+    }, {
+      id: '10',
+      message: "Let's have some fun. Can I show you one of these?",
       trigger: '8'
     }, {
       id: '5',
-      message: 'Close your eyes and take 10 deep breaths with a smile on your face, and then see how you feel.',
-      trigger: '8'
-    },
-    {
+      message: 'A-OK! Try closing your eyes, take 10 deep breaths with a big smile on your face and then see how you feel :)',
+      trigger: '10'
+    }, {
       id: '8',
       options: [
         { value: 1, label: 'Chuck Norris Fact', trigger: 'chuck' },
@@ -170,12 +173,12 @@ class Index extends React.Component {
       trigger: '9'
     }, {
       id: '9',
-      message: "Hit the button for what you'd like me to show you!",
+      message: "Which of these can I show you?",
       trigger: '8'
     }, {
       id: '7',
-      message: "It’s okay to feel sad. Be brave and reach out to someone, or write your thoughts down on paper. Hit the button you'd most like me to show you",
-      trigger: '8'
+      message: "It’s okay to feel sad. Be brave and reach out to someone, or write your thoughts down on paper. It just might help.",
+      trigger: '10'
     }, {
       id: 'end',
       options: [

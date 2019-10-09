@@ -34,7 +34,7 @@ class RandomJoke extends React.Component {
         <button onClick={this.getJoke}
           type="button"
           className="random-joke-button button is-info">
-          More Jokes Please!
+          refresh joke
       </button>
       </div >
     );

@@ -36,7 +36,7 @@ class RandomMeme extends React.Component {
         <button onClick={this.getMeme}
           type="button"
           className="random-meme-button button is-info">
-          One More Meme Please!
+          refresh meme
       </button>
       </div >
     );
