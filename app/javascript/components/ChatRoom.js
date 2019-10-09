@@ -7,21 +7,25 @@ import Messages from './Messages'
 class ChatRoom extends React.Component {
   state = {
     messages: [],
-    activeConversation: 2,
+    activeConversation: 1,
     text: ""
   };
 
+  componentDidMount() {
+    console.log(this.props)
+  }
+
   handleReceivedMessage = response => {
+    console.log(this.state.activeConversation)
     let messages = this.state.messages
     if(messages.every((message) => {
-      return message.id != response.id
+      return message.id != response.message.id
     })) {
-      messages.push(response)
+      messages.push(response.message)
     }
     this.setState({
       messages: messages
     })
-    console.log(this.state.messages)
   };
 
   handleChange = e => {
@@ -48,7 +52,7 @@ class ChatRoom extends React.Component {
           onReceived={this.handleReceivedMessage}
         />
 
-        <Messages messages={this.state.messages}/>
+        <Messages messages={this.state.messages} />
 
         <div className="newMessageForm">
           <form onSubmit={this.handleSubmit}>

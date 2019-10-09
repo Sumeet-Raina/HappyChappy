@@ -31,9 +31,6 @@ class App extends React.Component {
   handleClick = (mood) => {
     let currentMood = { currentMood: mood }
     this.createMood(currentMood, this.setMoods)
-    this.setState({
-      currentMood: mood
-    })
   }
 
   createMood(currentMood, callback) {
@@ -64,6 +61,7 @@ class App extends React.Component {
           silly: response.data.silly,
           currentMood: response.data.currentMood
         });
+        console.log(self.state)
       })
   }
 
@@ -207,7 +205,7 @@ class App extends React.Component {
     }, {
       id: 'chat',
       component: (
-        <ChatRoom />
+        <ChatRoom currentMood={this.state.currentMood} />
       ),
       end: true
     }
