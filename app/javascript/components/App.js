@@ -61,7 +61,6 @@ class App extends React.Component {
           silly: response.data.silly,
           currentMood: response.data.currentMood
         });
-        console.log(self.state)
       })
   }
 

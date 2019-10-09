@@ -12,7 +12,6 @@ class ChatRoom extends React.Component {
   };
 
   handleReceivedMessage = response => {
-    console.log(this.state.activeConversation)
     let messages = this.state.messages
     if(messages.every((message) => {
       return message.id != response.message.id
