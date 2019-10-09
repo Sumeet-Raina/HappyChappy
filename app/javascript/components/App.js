@@ -10,6 +10,9 @@ import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from 'styled-components';
 import ChatRoom from './ChatRoom'
 import MoodPieChart from "./MoodPieChart";
+import { theme } from '../constants';
+import { config } from '../constants';
+import { steps } from '../constants';
 
 class App extends React.Component {
 
@@ -48,9 +51,7 @@ class App extends React.Component {
       })
   }
 
-  getHappy = () => {
-    return this.state.happy
-  }
+
 
   setMoods(self) {
     axios
@@ -65,31 +66,6 @@ class App extends React.Component {
         });
       })
   }
-
-
-  theme = {
-    background: '#f5f8fb',
-    fontFamily: 'Helvetica Neue',
-    headerBgColor: '#EF6C00',
-    headerFontColor: '#fff',
-    headerFontSize: '15px',
-    botBubbleColor: '#EF6C00',
-    botFontColor: '#fff',
-    userBubbleColor: '#fff',
-    userFontColor: '#4a4a4a',
-
-  };
-
-  sadMoodAdvice() {
-    const advices = ["It’s okay to feel sad.", "Remember that it's temporary.",
-      "It’s normal to feel sad.", "What's the one way you can take care of yourself right now?", "It’s okay to feel sad. Be brave, reach out to someone, or write your thoughts down."
-    ]
-
-    const index = Math.floor(Math.random * advices.length)
-    console.log(advices[index])
-    return `${advices[index]}`
-  }
-
   steps = [
     {
       id: '1',
@@ -198,19 +174,15 @@ class App extends React.Component {
   ]
 
 
-  config = {
-    width: "70vw",
-    height: "80vh",
 
-  };
   render() {
     return (
 
       <div className='mood-container'>
         <h1 className='title'>hello happy chappy</h1>
         <div className="chat-container">
-          <ThemeProvider theme={this.theme}>
-            <ChatBot botAvatar={bot} headerTitle='Happy Chappy' happy={this.state.happy} steps={this.steps} {...this.config} />
+          <ThemeProvider theme={theme}>
+            <ChatBot botAvatar={bot} headerTitle='Happy Chappy' steps={this.steps} {...config} />
           </ThemeProvider >
         </div>
       </div>
