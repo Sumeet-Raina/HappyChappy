@@ -13,6 +13,7 @@ import MoodPieChart from "./MoodPieChart";
 import RandomSadAdvice from './RandomSadAdvice'
 import RandomOkayAdvice from './RandomOkayAdvice'
 import RandomHappyAdvice from './RandomHappyAdvice'
+import RandomSillyAdvice from './RandomSillyAdvice'
 import { theme } from '../constants';
 import { config } from '../constants';
 
@@ -147,7 +148,7 @@ class App extends React.Component {
       trigger: 'end'
     }, {
       id: '6',
-      message: 'Woohoo! Me too! Let\'s do a silly dance.',
+      component: <RandomSillyAdvice />,
       trigger: '9'
     }, {
       id: '9',

@@ -1,10 +1,21 @@
 import React from "react"
-import PropTypes from "prop-types"
 class RandomSillyAdvice extends React.Component {
-  render () {
+
+  advice() {
+    let advices = ["Wohoo! Do a silly dance.", "Do something crazy!", "Call someone that you're missing a lot!", "Go out for a nice walk!"]
+
+    let index = Math.floor(Math.random() * advices.length)
+    return advices[index]
+  }
+  render() {
+    console.log(this.advice())
+
+
+
     return (
-      <React.Fragment>
-      </React.Fragment>
+      <>
+        <h3 className='title'>{this.advice()}</h3>
+      </>
     );
   }
 }
