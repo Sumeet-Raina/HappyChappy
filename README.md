@@ -61,10 +61,16 @@ I want to be bot to suggest options to help with my current mood
 
 As a user   
 when I select view piechart option     
-I want to be see mood pie-chart  
+I want to be able to see mood pie-chart  
 
 As a user   
-when I select view jokes option     
-I want to be see random jokes   
+when I select view random jokes option     
+I want to be able to see random jokes   
 
+As a user     
+when I select view random memes option      
+I want to be able to see random memes   
 
+As a user     
+when I select view Chuck Noris Fact option      
+I want to be able to see randomChuck Noris Facts
