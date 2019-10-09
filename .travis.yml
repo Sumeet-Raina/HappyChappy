@@ -20,4 +20,5 @@ deploy:
     repo: Sumeet-Raina/HappyChappy
   run:
   - rake db:migrate
+  - rake db:seed
   - restart

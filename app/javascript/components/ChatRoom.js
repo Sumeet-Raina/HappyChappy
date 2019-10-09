@@ -1,6 +1,5 @@
 import React from 'react';
 import { ActionCableConsumer } from 'react-actioncable-provider';
-import { API_ROOT } from '../constants';
 import axios from 'axios';
 import Messages from './Messages'
 
@@ -31,7 +30,7 @@ class ChatRoom extends React.Component {
     e.preventDefault();
 
     axios
-      .post(`${API_ROOT}/messages`, {
+      .post(`/api/messages`, {
         text: this.state.text,
         conversation_id: this.state.activeConversation
       })
