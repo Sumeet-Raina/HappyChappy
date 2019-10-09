@@ -5,10 +5,14 @@ class ChuckNorrisFact extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fact: 'Chuck Norris can text using his walkie talkie and without batteries.'
+      fact: 'Chuck is loading . . . '
     };
 
     this.getFact = this.getFact.bind(this)
+  }
+
+  componentDidMount() {
+    this.getFact();
   }
 
   getFact() {

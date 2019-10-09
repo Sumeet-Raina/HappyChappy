@@ -24,6 +24,8 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.6",
+    "webpack-bundle-analyzer": "^3.5.2",
     "webpack-dev-server": "^3.8.1"
   }
 }

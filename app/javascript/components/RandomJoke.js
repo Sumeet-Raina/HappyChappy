@@ -5,11 +5,16 @@ class RandomJoke extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      setup: 'What do you call a bear with no teeth?',
-      punchline: 'A gummy bear!'
+      setup: 'loading . . .',
+      punchline: 'loading . . . '
     };
 
     this.getJoke = this.getJoke.bind(this)
+  }
+
+
+  componentDidMount() {
+    this.getJoke();
   }
 
   getJoke() {
