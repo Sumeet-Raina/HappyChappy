@@ -9,7 +9,6 @@ import PieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from 'styled-components';
-import { SIGXFSZ } from "constants";
 import ChatRoom from './ChatRoom'
 
 class App extends React.Component {
@@ -48,6 +47,10 @@ class App extends React.Component {
 
   getHappy = () => {
     return this.state.happy
+  }
+
+  getMood = () => {
+    return this.state.currentMood
   }
 
   setMoods(self) {
@@ -204,7 +207,7 @@ class App extends React.Component {
     }, {
       id: 'chat',
       component: (
-        <ChatRoom currentMood={this.state.currentMood} />
+        <ChatRoom currentMood={this.state.currentMood} getMood={this.getMood}/>
       ),
       end: true
     }

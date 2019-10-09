@@ -10,6 +10,22 @@ class ChatRoom extends React.Component {
     text: ""
   };
 
+  componentDidMount() {
+    this.setConversation()
+  }
+
+  setConversation = () => {
+    if (this.props.getMood() == "okay") {
+      this.setState({activeConversation: 1})
+    } else if (this.props.getMood() == "happy") {
+      this.setState({activeConversation: 2})
+    } else if (this.props.getMood() == "silly") {
+      this.setState({activeConversation: 3})
+    } else {
+      this.setState({activeConversation: 4})
+    }
+  }
+
   handleReceivedMessage = response => {
     let messages = this.state.messages
     if(messages.every((message) => {
