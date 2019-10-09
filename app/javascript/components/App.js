@@ -12,6 +12,7 @@ import ChatRoom from './ChatRoom'
 import MoodPieChart from "./MoodPieChart";
 import RandomSadAdvice from './RandomSadAdvice'
 import RandomOkayAdvice from './RandomOkayAdvice'
+import RandomHappyAdvice from './RandomHappyAdvice'
 import { theme } from '../constants';
 import { config } from '../constants';
 
@@ -112,7 +113,7 @@ class App extends React.Component {
     },
     {
       id: '4',
-      message: "That's great! Why not share your good vibes, and send a nice text to someone you like.",
+      component: <RandomHappyAdvice />,
       trigger: '8'
     }, {
       id: '5',

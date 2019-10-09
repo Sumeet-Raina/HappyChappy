@@ -1,5 +1,5 @@
 import React from "react"
-import { sadAdvices } from '../constants';
+
 class RandomOkayAdvice extends React.Component {
 
   advice() {
