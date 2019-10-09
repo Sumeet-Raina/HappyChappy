@@ -7,3 +7,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Conversation.create(title: "okay", id: 1)
+Conversation.create(title: "happy", id: 2)
+Conversation.create(title: "silly", id: 3)
+Conversation.create(title: "sad", id: 4)

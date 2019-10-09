@@ -7,5 +7,10 @@ Rails.application.routes.draw do
     resources :moods, only: [:index, :create]
   end
 
+  resources :conversations, only: [:index, :create]
+  resources :messages, only: [:create]
+
+  mount ActionCable.server => '/cable'
+
   root 'page#index'
 end

@@ -10,8 +10,9 @@ import { passCsrfToken } from '../util/helpers'
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from 'styled-components';
 import { SIGXFSZ } from "constants";
+import ChatRoom from './ChatRoom'
 
-class Index extends React.Component {
+class App extends React.Component {
 
 
   state = {
@@ -202,6 +203,12 @@ class Index extends React.Component {
           }}
         />
       ),
+      trigger: 'chat'
+    }, {
+      id: 'chat',
+      component: (
+        <ChatRoom />
+      ),
       end: true
     }
   ]
@@ -227,6 +234,6 @@ class Index extends React.Component {
   }
 }
 
-export default Index
+export default App
 
 
