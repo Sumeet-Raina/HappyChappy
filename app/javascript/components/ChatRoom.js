@@ -39,6 +39,7 @@ class ChatRoom extends React.Component {
   };
 
   handleChange = e => {
+    console.log(this.state)
     this.setState({ text: e.target.value });
   };
 
@@ -66,6 +67,7 @@ class ChatRoom extends React.Component {
 
         <div className="newMessageForm">
           <form onSubmit={this.handleSubmit}>
+          <label>{this.props.getMood().toUpperCase()} CHAT!</label>
             <label>New Message:</label>
             <br />
             <input
