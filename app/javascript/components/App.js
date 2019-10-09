@@ -128,7 +128,6 @@ class App extends React.Component {
         { value: 1, label: 'Chuck Norris Fact', trigger: 'chuck' },
         { value: 2, label: 'Random Joke', trigger: 'joke' },
         { value: 3, label: 'Random Meme', trigger: 'meme' },
-        { value: 4, label: 'Fortune Cookie', trigger: 'fortune' },
       ]
     }, {
       id: 'chuck',
@@ -146,12 +145,6 @@ class App extends React.Component {
       id: 'meme',
       component: (
         <RandomMeme />
-      ),
-      trigger: 'end'
-    }, {
-      id: 'fortune',
-      component: (
-        <FortuneCookie />
       ),
       trigger: 'end'
     }, {
