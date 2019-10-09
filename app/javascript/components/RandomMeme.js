@@ -4,14 +4,14 @@ class RandomMeme extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'FBI OPEN UP"',
-      url: 'https://i.redd.it/zmwnl5jvj8q31.jpg'
+      title: 'loading . . .',
+      url: 'loading . . . '
     };
 
     this.getMeme = this.getMeme.bind(this)
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getMeme()
   }
 

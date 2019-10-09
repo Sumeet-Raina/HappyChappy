@@ -4,12 +4,15 @@ import RandomJoke from './RandomJoke'
 import RandomMeme from './RandomMeme'
 import axios from 'axios'
 import bot from '../../assets/images/bot_avatar'
-import user_avatar from '../../assets/images/like'
 import PieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from 'styled-components';
 import ChatRoom from './ChatRoom'
+import MoodPieChart from "./MoodPieChart";
+import { theme } from '../constants';
+import { config } from '../constants';
+import { steps } from '../constants';
 
 class App extends React.Component {
 
@@ -46,9 +49,7 @@ class App extends React.Component {
       })
   }
 
-  getHappy = () => {
-    return this.state.happy
-  }
+
 
   getMood = () => {
     return this.state.currentMood
@@ -67,31 +68,6 @@ class App extends React.Component {
         });
       })
   }
-
-
-  theme = {
-    background: '#f5f8fb',
-    fontFamily: 'Helvetica Neue',
-    headerBgColor: '#EF6C00',
-    headerFontColor: '#fff',
-    headerFontSize: '15px',
-    botBubbleColor: '#EF6C00',
-    botFontColor: '#fff',
-    userBubbleColor: '#fff',
-    userFontColor: '#4a4a4a',
-
-  };
-
-  sadMoodAdvice() {
-    const advices = ["It’s okay to feel sad.", "Remember that it's temporary.",
-      "It’s normal to feel sad.", "What's the one way you can take care of yourself right now?", "It’s okay to feel sad. Be brave, reach out to someone, or write your thoughts down."
-    ]
-
-    const index = Math.floor(Math.random * advices.length)
-    console.log(advices[index])
-    return `${advices[index]}`
-  }
-
   steps = [
     {
       id: '1',
@@ -186,24 +162,9 @@ class App extends React.Component {
     }, {
       id: 'stats',
       component: (
-        <PieChart
-          data={[
-            { title: 'Okay', value: this.state.okay, color: '#C13C37' },
-            { title: 'Happy', value: this.state.happy, color: '#E38627' },
-            { title: 'Silly', value: this.state.silly, color: '#6A4335' },
-            { title: 'Sad', value: this.state.sad, color: '#6A2135' }
-          ]}
-          style={{ height: '15vw' }}
-          label
-          animate
-          labelStyle={{
-            fontSize: '10px',
-            fontColor: '#FFFFFF',
-            fontFamily: 'sans-serif',
-            fill: '#121212'
-          }}
-        />
-      ),
+        <MoodPieChart
+          data={this.state}
+        />),
       trigger: 'chat'
     }, {
       id: 'chat',
@@ -215,11 +176,7 @@ class App extends React.Component {
   ]
 
 
-  config = {
-    width: "70vw",
-    height: "80vh",
 
-  };
   render() {
     console.log('HELLO');
     return (
@@ -227,14 +184,16 @@ class App extends React.Component {
       <div className='mood-container'>
         <h1 className='title'>hello happy chappy</h1>
         <div className="chat-container">
-          <ThemeProvider theme={this.theme}>
-            <ChatBot userAvatar={user_avatar} botAvatar={bot} headerTitle='Happy Chappy' happy={this.state.happy} steps={this.steps} {...this.config} />
+          <ThemeProvider theme={theme}>
+            <ChatBot botAvatar={bot} headerTitle='Happy Chappy' steps={this.steps} {...config} />
           </ThemeProvider >
         </div>
       </div>
     );
   }
 }
+
+
 
 export default App
 
