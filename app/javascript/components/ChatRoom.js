@@ -39,7 +39,6 @@ class ChatRoom extends React.Component {
   };
 
   handleChange = e => {
-    console.log(this.state)
     this.setState({ text: e.target.value });
   };
 
