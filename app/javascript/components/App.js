@@ -183,24 +183,10 @@ class App extends React.Component {
     }, {
       id: 'stats',
       component: (
-        <PieChart
-          data={[
-            { title: 'Okay', value: this.state.okay, color: '#C13C37' },
-            { title: 'Happy', value: this.state.happy, color: '#E38627' },
-            { title: 'Silly', value: this.state.silly, color: '#6A4335' },
-            { title: 'Sad', value: this.state.sad, color: '#6A2135' }
-          ]}
-          style={{ height: '15vw' }}
-          label
-          animate
-          labelStyle={{
-            fontSize: '10px',
-            fontColor: '#FFFFFF',
-            fontFamily: 'sans-serif',
-            fill: '#121212'
-          }}
-        />
-      ),
+        <CustomComponent
+          data={this.state}
+          getUpdatedStateFromParent={() => this.state}
+        />),
       trigger: 'chat'
     }, {
       id: 'chat',
@@ -229,6 +215,40 @@ class App extends React.Component {
         </div>
       </div>
     );
+  }
+}
+
+class CustomComponent extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = this.props.data;
+  }
+
+  UNSAFE_componentWillMount() {
+    this.setState(this.props.getUpdatedStateFromParent());
+  }
+
+  render() {
+    return (
+      < PieChart
+        data={
+          [
+            { title: 'Okay', value: this.state.okay, color: '#C13C37' },
+            { title: 'Happy', value: this.state.happy, color: '#E38627' },
+            { title: 'Silly', value: this.state.silly, color: '#6A4335' },
+            { title: 'Sad', value: this.state.sad, color: '#6A2135' }
+          ]}
+        style={{ height: '15vw' }
+        }
+        label
+        animate
+        labelStyle={{
+          fontSize: '10px',
+          fontColor: '#FFFFFF',
+          fontFamily: 'sans-serif',
+          fill: '#121212'
+        }}
+      />)
   }
 }
 
