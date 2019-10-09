@@ -4,12 +4,10 @@ import RandomJoke from './RandomJoke'
 import RandomMeme from './RandomMeme'
 import axios from 'axios'
 import bot from '../../assets/images/bot_avatar'
-import user_avatar from '../../assets/images/like'
 import PieChart from 'react-minimal-pie-chart';
 import { passCsrfToken } from '../util/helpers'
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from 'styled-components';
-import { SIGXFSZ } from "constants";
 import ChatRoom from './ChatRoom'
 
 class App extends React.Component {
@@ -226,7 +224,7 @@ class App extends React.Component {
         <h1 className='title'>hello happy chappy</h1>
         <div className="chat-container">
           <ThemeProvider theme={this.theme}>
-            <ChatBot userAvatar={user_avatar} botAvatar={bot} headerTitle='Happy Chappy' happy={this.state.happy} steps={this.steps} {...this.config} />
+            <ChatBot botAvatar={bot} headerTitle='Happy Chappy' happy={this.state.happy} steps={this.steps} {...this.config} />
           </ThemeProvider >
         </div>
       </div>
