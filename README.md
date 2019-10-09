@@ -47,7 +47,7 @@ So that I can access my account
 I want to be able to login  
 
 As a user  
-I want bot to ask me about my mood 
+I want bot to ask me about my mood   
 and show me mood options
 
 As a user  
