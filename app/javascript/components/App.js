@@ -11,9 +11,13 @@ import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from 'styled-components';
 import ChatRoom from './ChatRoom'
 import MoodPieChart from "./MoodPieChart";
+import RandomSadAdvice from './RandomSadAdvice'
+import RandomOkayAdvice from './RandomOkayAdvice'
+import RandomHappyAdvice from './RandomHappyAdvice'
+import RandomSillyAdvice from './RandomSillyAdvice'
 import { theme } from '../constants';
 import { config } from '../constants';
-import { steps } from '../constants';
+
 
 class App extends React.Component {
 
@@ -84,25 +88,25 @@ class App extends React.Component {
       id: '3',
       options: [
         {
-          value: "😊 happy", label: '😊', trigger: () => {
+          value: "😊 happy", label: 'happy', trigger: () => {
             this.handleClick('happy');
             return '4'
           }
         },
         {
-          value: "😐 okay", label: '😐', trigger: () => {
+          value: "😐 okay", label: 'okay', trigger: () => {
             this.handleClick('okay');
             return '5'
           }
         },
         {
-          value: "🤪 silly", label: '🤪', trigger: () => {
+          value: "🤪 silly", label: 'silly', trigger: () => {
             this.handleClick('silly');
             return '6'
           }
         },
         {
-          value: "😔 sad", label: '😔', trigger: () => {
+          value: "😔 sad", label: 'sad', trigger: () => {
             this.handleClick('sad');
             return '7'
           }
@@ -111,12 +115,12 @@ class App extends React.Component {
     },
     {
       id: '4',
-      message: "That's great! Why not share your good vibes, and send a nice text to someone you like.",
-      trigger: '9'
+      component: <RandomHappyAdvice />,
+      trigger: '8'
     }, {
       id: '5',
-      message: 'A-OK! Try this: close your eyes and take 10 deep breaths with a smile on your face. Then see how you feel :)',
-      trigger: '9'
+      component: <RandomOkayAdvice />,
+      trigger: '8'
     },
     {
       id: '8',
@@ -124,7 +128,6 @@ class App extends React.Component {
         { value: 1, label: 'Chuck Norris Fact', trigger: 'chuck' },
         { value: 2, label: 'Random Joke', trigger: 'joke' },
         { value: 3, label: 'Random Meme', trigger: 'meme' },
-        { value: 4, label: 'Fortune Cookie', trigger: 'fortune' },
       ]
     }, {
       id: 'chuck',
@@ -145,23 +148,17 @@ class App extends React.Component {
       ),
       trigger: 'end'
     }, {
-      id: 'fortune',
-      component: (
-        <FortuneCookie />
-      ),
-      trigger: 'end'
-    }, {
       id: '6',
-      message: 'Woohoo! Me too! Let\'s do a silly dance.',
+      component: <RandomSillyAdvice />,
       trigger: '9'
     }, {
       id: '9',
-      message: "What can I show you now?",
+      message: "Hit the button for what you'd like me to show you!",
       trigger: '8'
     }, {
       id: '7',
-      message: "It’s okay to feel sad. Be brave and reach out to someone, or write your thoughts down on paper. It might help :)",
-      trigger: '9'
+      component: <RandomSadAdvice />,
+      trigger: '8'
     }, {
       id: 'end',
       options: [
@@ -177,7 +174,7 @@ class App extends React.Component {
     }, {
       id: 'chat',
       component: (
-        <ChatRoom currentMood={this.state.currentMood} getMood={this.getMood}/>
+        <ChatRoom currentMood={this.state.currentMood} getMood={this.getMood} />
       ),
       end: true
     }

@@ -57,3 +57,52 @@
     margin-left: auto;
     margin-right: auto
 }
+
+.happy-color::before {
+    padding: 0 5px 0 0;
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    // margin-right: 10px;
+    background-color: #E38627;
+}
+
+.okay-color::before {
+    padding: 0 5px 0 0;
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    // margin-right: 14px;
+    background-color: #C13C37;
+}
+
+.silly-color::before {
+    padding: 0 5px 0 0;
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    // margin-right: 14px;
+    background-color: #6A4335;
+}
+
+.sad-color::before {
+    padding: 0 5px 0 0;
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    // margin-right: 14px;
+    background-color: #6A2135;
+}
+
+.piechart-mood-container {
+    padding: 0 5px 0 0;
+    display: flex;
+    .piechart-container,
+    .legend-container {
+        flex: 50%;
+    }
+}

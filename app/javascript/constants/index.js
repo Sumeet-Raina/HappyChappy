@@ -16,6 +16,4 @@ export const config = {
 
 };
 
-export const sadAdvices = ["It’s okay to feel sad.", "Remember that it's temporary.",
-  "It’s normal to feel sad.", "What's the one way you can take care of yourself right now?", "It’s okay to feel sad. Be brave, reach out to someone, or write your thoughts down."
-]
+
