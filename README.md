@@ -12,7 +12,7 @@ Feeling annoyed and want to wallow in it? Feeling great and would like to share 
 # How to run the tests #
  `rails spec`
 # Database creation #
-  `rails db:migrate`
+  `rails db:setup`
 # Tech Stack #
 
 ## Back-end ##
