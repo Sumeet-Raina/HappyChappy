@@ -11,10 +11,6 @@ class ChatRoom extends React.Component {
     text: ""
   };
 
-  componentDidMount() {
-    console.log(this.props)
-  }
-
   handleReceivedMessage = response => {
     console.log(this.state.activeConversation)
     let messages = this.state.messages
