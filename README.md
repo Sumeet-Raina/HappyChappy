@@ -47,8 +47,8 @@ So that I can access my account
 I want to be able to login  
 
 As a user  
-So that I can monitor my moods  
-I want to be able to create a new record when I login
+I want bot to ask me about my mood 
+and show me mood options
 
 As a user  
 when I login  
