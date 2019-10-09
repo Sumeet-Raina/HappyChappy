@@ -16,19 +16,19 @@ class ChatRoom extends React.Component {
 
   setConversation = () => {
     if (this.props.getMood() == "okay") {
-      this.setState({activeConversation: 1})
+      this.setState({ activeConversation: 1 })
     } else if (this.props.getMood() == "happy") {
-      this.setState({activeConversation: 2})
+      this.setState({ activeConversation: 2 })
     } else if (this.props.getMood() == "silly") {
-      this.setState({activeConversation: 3})
+      this.setState({ activeConversation: 3 })
     } else {
-      this.setState({activeConversation: 4})
+      this.setState({ activeConversation: 4 })
     }
   }
 
   handleReceivedMessage = response => {
     let messages = this.state.messages
-    if(messages.every((message) => {
+    if (messages.every((message) => {
       return message.id != response.message.id
     })) {
       messages.push(response.message)
@@ -56,7 +56,7 @@ class ChatRoom extends React.Component {
 
   render = () => {
     return (
-      <div className="conversationsList">
+      <div className="conversationsList box">
 
         <ActionCableConsumer
           channel={{ channel: 'MessagesChannel', conversation: this.state.activeConversation }}
@@ -67,7 +67,7 @@ class ChatRoom extends React.Component {
 
         <div className="newMessageForm">
           <form onSubmit={this.handleSubmit}>
-          <label>{this.props.getMood().toUpperCase()} CHAT!</label>
+            <label>{this.props.getMood().toUpperCase()} CHAT!</label>
             <label>New Message:</label>
             <br />
             <input
@@ -75,9 +75,9 @@ class ChatRoom extends React.Component {
               value={this.state.text}
               onChange={this.handleChange}
             />
-            <input type="submit" />
+            <input className='input' type="submit" />
           </form>
-       </div>
+        </div>
       </div>
     );
   };
