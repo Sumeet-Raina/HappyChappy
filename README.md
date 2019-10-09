@@ -73,4 +73,4 @@ I want to be able to see random memes
 
 As a user     
 when I select view Chuck Noris Fact option      
-I want to be able to see randomChuck Noris Facts
+I want to be able to see random Chuck Noris Facts
