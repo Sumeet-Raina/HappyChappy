@@ -7,27 +7,35 @@ class ChatRoom extends React.Component {
   state = {
     messages: [],
     activeConversation: 1,
-    text: ""
+    text: "",
+    currentMood: "happy"
   };
 
   componentDidMount() {
+    this.setMood()
     this.setConversation()
   }
 
+  setMood() {
+    this.setState({
+      currentMood: this.getMood
+    })
+  }
+
   setConversation = () => {
-    if (this.mood('okay')) {
+    if (this.isMood('okay')) {
       this.setState({activeConversation: 1})
-    } else if (this.mood('happy')) {
+    } else if (this.isMood('happy')) {
       this.setState({activeConversation: 2})
-    } else if (this.mood('silly')) {
+    } else if (this.isMood('silly')) {
       this.setState({activeConversation: 3})
     } else {
       this.setState({activeConversation: 4})
     }
   }
 
-  mood = (currentMood) => {
-    this.props.getMood() == currentMood
+  isMood = (mood) => {
+    this.state.currentMood == mood
   }
 
   handleReceivedMessage = response => {
@@ -63,7 +71,7 @@ class ChatRoom extends React.Component {
 
   render = () => {
     return (
-      <div className="conversationsList">
+      <div className={"chat-room-" + this.state.currentMood}>
 
         <ActionCableConsumer
           channel={{ channel: 'MessagesChannel', conversation: this.state.activeConversation }}

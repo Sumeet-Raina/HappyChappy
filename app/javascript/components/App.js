@@ -184,7 +184,7 @@ class App extends React.Component {
   render() {
     return (
 
-      <div className='mood-container'>
+      <div className={'mood-container-' + this.state.currentMood}>
         <h1 className='title'>hello happy chappy</h1>
         <div className="chat-container">
           <ThemeProvider theme={theme}>

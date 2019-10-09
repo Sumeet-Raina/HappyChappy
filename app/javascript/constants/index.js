@@ -15,5 +15,3 @@ export const config = {
   height: "80vh",
 
 };
-
-
