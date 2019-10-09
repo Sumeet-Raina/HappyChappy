@@ -63,6 +63,8 @@ As a user
 when I select view piechart option     
 I want to be see mood pie-chart  
 
-
+As a user   
+when I select view jokes option     
+I want to be see random jokes   
 
 
