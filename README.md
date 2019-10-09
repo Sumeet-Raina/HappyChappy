@@ -51,7 +51,7 @@ I want bot to ask me about my mood
 and show me mood options
 
 As a user  
-when bot prompts mood options 
+when bot prompts mood options   
 I want to be able to select a mood as response 
 
 
