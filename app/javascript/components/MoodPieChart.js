@@ -80,11 +80,10 @@ class MoodPieChart extends React.Component {
           />
         </div>
         <div className='legend-container'>
-          <h5>legend:</h5>
-          <p className='okay-color'>okay</p>
-          <p className='happy-color'>happy</p>
-          <p className='silly-color'>silly</p>
-          <p className='sad-color'>sad</p>
+          <p className='okay-color'> okay</p>
+          <p className='happy-color'>  happy</p>
+          <p className='silly-color'>   silly</p>
+          <p className='sad-color'>  sad</p>
         </div>
       </div>
     )
