@@ -15,6 +15,7 @@ import ChatRoom from './ChatRoom'
 class App extends React.Component {
 
 
+
   state = {
     happy: 25,
     sad: 25,
@@ -220,6 +221,7 @@ class App extends React.Component {
 
   };
   render() {
+    console.log('HELLO');
     return (
 
       <div className='mood-container'>
