@@ -4,13 +4,13 @@ class MessageFeed extends React.Component {
 
   render = () => {
     return (
-      <ul>
+      <div class="list is-hoverable">
         {
           this.props.messages.map(message => {
-            return <li key={message.id}>{message.user_name}: {message.text}</li>;
+            return <p className="list-item" key={message.id}>{message.user_name}: {message.text}</p>;
           })
         }
-      </ul>
+      </div>
 
     );
   };
