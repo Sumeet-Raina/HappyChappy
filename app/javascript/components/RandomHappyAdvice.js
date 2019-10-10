@@ -3,7 +3,7 @@ import React from "react"
 class RandomHappyAdvice extends React.Component {
 
   advice() {
-    let advices = ["That's great!Share your good vibes, send a text to someone you like.", "Try to name and write down in your diary 5 best things that happened today", "What is the best thing that happend today? Can you describe it or image in your head?", "Try meditation! It will boot your mood even higher!"]
+    let advices = ["That's great! Why not share your good vibes and send a warm text to somebody you like.", "Awesome! Write down the 3 best things that happened today", "Great! What's the best thing that happened today? Describe or imagine it to really feel it!", "Awesome! Now meditate on that! It can boost your mood even higher!"]
 
     let index = Math.floor(Math.random() * advices.length)
     return advices[index]
