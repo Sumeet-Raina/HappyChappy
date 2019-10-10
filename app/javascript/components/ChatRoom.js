@@ -76,19 +76,19 @@ class ChatRoom extends React.Component {
           channel={{ channel: 'MessagesChannel', conversation: this.state.activeConversation }}
           onReceived={this.handleReceivedMessage}
         />
-        <div className="messageFeed">
+        <div className="messageFeed field">
           <MessageFeed messages={this.state.messages} />
         </div>
 
-        <div className="newMessageForm">
+        <div className="newMessageForm field">
           <form onSubmit={this.handleSubmit}>
-            <label className='label'>{this.props.getMood().toUpperCase()} CHAT!</label>
+            <label className='subtitle'>{this.props.getMood().toUpperCase()} CHAT!</label>
             <br />
             <label className='label'>New Message:</label>
             <br />
             <div className="field">
               <input
-                className='input'
+                className='input textarea'
                 type="text"
                 value={this.state.text}
                 onChange={this.handleChange}

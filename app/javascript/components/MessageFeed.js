@@ -7,7 +7,7 @@ class MessageFeed extends React.Component {
       <ul>
         {
           this.props.messages.map(message => {
-            return <li key={message.id}>{message.user_name}: {message.text}</li>;
+            return <li className=" field" key={message.id}>{message.user_name}: {message.text}</li>;
           })
         }
       </ul>
