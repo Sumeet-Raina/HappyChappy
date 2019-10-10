@@ -16,6 +16,7 @@ import RandomHappyAdvice from './RandomHappyAdvice'
 import RandomSillyAdvice from './RandomSillyAdvice'
 import { theme } from '../constants';
 import { config } from '../constants';
+import user from '../../assets/images/smiley'
 
 
 class App extends React.Component {
@@ -93,7 +94,7 @@ class App extends React.Component {
           }
         },
         {
-          value: "😊 okay", label: '😊', trigger: () => {
+          value: "😐 okay", label: '😐', trigger: () => {
             this.handleClick('okay');
             return '5'
           }
@@ -194,7 +195,7 @@ class App extends React.Component {
       <div className={'mood-container-' + this.state.currentMood}>
         <div className="chat-container">
           <ThemeProvider theme={theme}>
-            <ChatBot botAvatar={bot} headerTitle='Happy Chappy' steps={this.steps} {...config} />
+            <ChatBot userAvatar={user} botAvatar={bot} headerTitle='Happy Chappy' steps={this.steps} {...config} />
           </ThemeProvider >
         </div>
       </div>
