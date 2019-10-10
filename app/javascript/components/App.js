@@ -16,6 +16,7 @@ import RandomHappyAdvice from './RandomHappyAdvice'
 import RandomSillyAdvice from './RandomSillyAdvice'
 import { theme } from '../constants';
 import { config } from '../constants';
+import emojiRegex from "emoji-regex";
 
 
 class App extends React.Component {
@@ -93,8 +94,8 @@ class App extends React.Component {
           }
         },
         {
-          value: "😊 okay", label: '😊', trigger: () => {
-            this.handleClick('okay');
+          value: "😐 okay", label: '😐', trigger: () => {
+            this.handleClick('okay'); 
             return '5'
           }
         },
