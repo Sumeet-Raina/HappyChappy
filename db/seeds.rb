@@ -12,3 +12,31 @@ Conversation.create(title: "okay", id: 1)
 Conversation.create(title: "happy", id: 2)
 Conversation.create(title: "silly", id: 3)
 Conversation.create(title: "sad", id: 4)
+
+winnie = User.create! :user_name => 'Winnie', :email => 'winnie@hundredacre.woods', :password => 'Password', :password_confirmation => 'Password'
+winnie_id = User.last.id
+20.times { Mood.create(user_id: winnie_id, mood_type: 'okay') }
+10.times { Mood.create(user_id: winnie_id, mood_type: 'happy') }
+5.times { Mood.create(user_id: winnie_id, mood_type: 'sad') }
+5.times { Mood.create(user_id: winnie_id, mood_type: 'silly') }
+
+piglet = User.create! :user_name => 'Piglet', :email => 'piglet@hundredacre.woods', :password => 'Password', :password_confirmation => 'Password'
+piglet_id = User.last.id
+10.times { Mood.create(user_id: piglet_id, mood_type: 'okay') }
+10.times { Mood.create(user_id: piglet_id, mood_type: 'happy') }
+10.times { Mood.create(user_id: piglet_id, mood_type: 'sad') }
+10.times { Mood.create(user_id: piglet_id, mood_type: 'silly') }
+
+tigger = User.create! :user_name => 'Tigger', :email => 'tigger@hundredacre.woods', :password => 'Password', :password_confirmation => 'Password'
+tigger_id = User.last.id
+4.times { Mood.create(user_id: tigger_id, mood_type: 'okay') }
+5.times { Mood.create(user_id: tigger_id, mood_type: 'happy') }
+1.times { Mood.create(user_id: tigger_id, mood_type: 'sad') }
+30.times { Mood.create(user_id: tigger_id, mood_type: 'silly') }
+
+Eeyore = User.create! :user_name => 'Eeyore', :email => 'eeyore@hundredacre.woods', :password => 'Password', :password_confirmation => 'Password'
+eeyore_id = User.last.id
+1.times { Mood.create(user_id: eeyore_id, mood_type: 'okay') }
+1.times { Mood.create(user_id: eeyore_id, mood_type: 'happy') }
+1.times { Mood.create(user_id: eeyore_id, mood_type: 'sad') }
+36.times { Mood.create(user_id: eeyore_id, mood_type: 'silly') }
