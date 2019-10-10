@@ -87,25 +87,25 @@ class App extends React.Component {
       id: '3',
       options: [
         {
-          value: "😊 happy", label: 'happy', trigger: () => {
+          value: "😊 happy", label: '😊', trigger: () => {
             this.handleClick('happy');
             return '4'
           }
         },
         {
-          value: "😐 okay", label: 'okay', trigger: () => {
+          value: "😊 okay", label: '😊', trigger: () => {
             this.handleClick('okay');
             return '5'
           }
         },
         {
-          value: "🤪 silly", label: 'silly', trigger: () => {
+          value: "🤪 silly", label: '🤪', trigger: () => {
             this.handleClick('silly');
             return '6'
           }
         },
         {
-          value: "😔 sad", label: 'sad', trigger: () => {
+          value: "😔 sad", label: '😔', trigger: () => {
             this.handleClick('sad');
             return '7'
           }
@@ -120,13 +120,18 @@ class App extends React.Component {
       id: '5',
       component: <RandomOkayAdvice />,
       trigger: '8'
+    }, {
+      id: '8',
+      message: "What can I show you now?",
+      trigger: '9'
     },
     {
-      id: '8',
+      id: '9',
       options: [
         { value: 1, label: 'Chuck Norris Fact', trigger: 'chuck' },
-        { value: 2, label: 'Random Joke', trigger: 'joke' },
-        { value: 3, label: 'Random Meme', trigger: 'meme' },
+        { value: 2, label: 'Joke', trigger: 'joke' },
+        { value: 3, label: 'Meme', trigger: 'meme' },
+        { value: 4, label: 'Fortune Cookie', trigger: 'fortune' },
       ]
     }, {
       id: 'chuck',
@@ -147,13 +152,15 @@ class App extends React.Component {
       ),
       trigger: 'end'
     }, {
+      id: 'fortune',
+      component: (
+        <FortuneCookie />
+      ),
+      trigger: 'end'
+    }, {
       id: '6',
       component: <RandomSillyAdvice />,
       trigger: '9'
-    }, {
-      id: '9',
-      message: "Hit the button for what you'd like me to show you!",
-      trigger: '8'
     }, {
       id: '7',
       component: <RandomSadAdvice />,
@@ -185,7 +192,6 @@ class App extends React.Component {
     return (
 
       <div className={'mood-container-' + this.state.currentMood}>
-        <h1 className='title'>hello happy chappy</h1>
         <div className="chat-container">
           <ThemeProvider theme={theme}>
             <ChatBot botAvatar={bot} headerTitle='Happy Chappy' steps={this.steps} {...config} />

@@ -62,10 +62,10 @@ class MoodPieChart extends React.Component {
           < PieChart
             data={
               [
-                { title: 'Okay', value: this.state.okay, color: '#C13C37' },
-                { title: 'Happy', value: this.state.happy, color: '#E38627' },
-                { title: 'Silly', value: this.state.silly, color: '#6A4335' },
-                { title: 'Sad', value: this.state.sad, color: '#6A2135' }
+                { title: 'Okay', value: this.state.okay, color: '#33FF7D' },
+                { title: 'Happy', value: this.state.happy, color: '#FFF333' },
+                { title: 'Silly', value: this.state.silly, color: '#E933FF' },
+                { title: 'Sad', value: this.state.sad, color: '#3333FF' }
               ]}
             style={{ height: '15vw' }
             }

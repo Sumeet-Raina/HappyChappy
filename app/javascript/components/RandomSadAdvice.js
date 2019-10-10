@@ -2,8 +2,7 @@ import React from "react"
 class RandomSadAdvice extends React.Component {
 
   advice() {
-    let advices = ["It’s okay to feel sad.", "Remember that it's temporary.",
-      "It’s normal to feel sad.", "What's the one way you can take care of yourself right now?", "It’s okay to feel sad. Be brave, reach out to someone, or write your thoughts down.", "You’re not alone in this.", "We are not on this earth to see through one another, but to see one another through.", "I can’t really understand what you are feeling, but I can offer my compassion.", "I’m sorry that you don't feel good.", "Have you tried chamomile tea?"]
+    let advices = ["Oh I'm sorry. YOu know it’s okay to feel sad.", "It's OK to feel sad, just remember that it's temporary.", "Sorry to hear that. What's one way you can take care of yourself today?", "It’s OK to feel sad. Be brave and reach out to someone.", "Sorry to hear that. We're not on this earth to see through one another, but to see one another through.", "I’m sorry you don't feel good today.", "Sorry to hear that. Why not make a nice hot cup of chamomile tea?"]
 
     let index = Math.floor(Math.random() * advices.length)
     return advices[index]
