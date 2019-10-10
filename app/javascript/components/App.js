@@ -76,7 +76,7 @@ class App extends React.Component {
     {
       id: '1',
       message: 'Hello! Great to have you here!',
-      trigger: 'chat',
+      trigger: '2',
     },
     {
       id: '2',
