@@ -1,6 +1,9 @@
 {
   "name": "HappyChappy",
   "private": true,
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
     "@rails/actioncable": "^6.0.0-alpha",
@@ -25,6 +28,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.6",
+    "jest": "^24.9.0",
     "webpack-bundle-analyzer": "^3.5.2",
     "webpack-dev-server": "^3.8.1"
   }
