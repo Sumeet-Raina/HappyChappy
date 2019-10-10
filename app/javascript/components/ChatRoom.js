@@ -24,11 +24,11 @@ class ChatRoom extends React.Component {
 
   setConversation = () => {
     if (this.isMood('okay')) {
-      this.setState({activeConversation: 1})
+      this.setState({ activeConversation: 1 })
     } else if (this.isMood('happy')) {
-      this.setState({activeConversation: 2})
+      this.setState({ activeConversation: 2 })
     } else if (this.isMood('silly')) {
-      this.setState({activeConversation: 3})
+      this.setState({ activeConversation: 3 })
     } else {
       this.setState({ activeConversation: 4 })
     }
@@ -40,7 +40,7 @@ class ChatRoom extends React.Component {
 
   handleReceivedMessage = response => {
     let messages = this.state.messages
-    if(this.isAlreadyStored(messages, response)) {
+    if (this.isAlreadyStored(messages, response)) {
       messages.push(response.message)
     }
     this.setState({
@@ -86,11 +86,12 @@ class ChatRoom extends React.Component {
             <label>New Message:</label>
             <br />
             <input
+              className='message-input'
               type="text"
               value={this.state.text}
               onChange={this.handleChange}
             />
-            <input className='input' type="submit" />
+            <input className='input' type="submit" value="send message" />
           </form>
         </div>
       </div>
