@@ -95,6 +95,7 @@ class ChatRoom extends React.Component {
               />
               <button className='button' type="submit">send message</button>
             </div>
+
           </form>
         </div>
       </div>
