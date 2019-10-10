@@ -81,10 +81,10 @@ class ChatRoom extends React.Component {
         </div>
 
         <div className="newMessageForm field">
-          <form onSubmit={this.handleSubmit}>
-            <label className='subtitle'>{this.props.getMood().toUpperCase()} CHAT!</label>
-            <br />
-            <label className='label'>New Message:</label>
+          <form onSubmit={this.handleSubmit}> 
+          <div className='list'> 
+            <label className='list-item chat-title'>{this.props.getMood().toUpperCase()} CHAT!:</label>
+          </div>
             <br />
             <div className="field">
               <input
