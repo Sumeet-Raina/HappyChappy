@@ -160,7 +160,7 @@ class App extends React.Component {
     }, {
       id: '6',
       component: <RandomSillyAdvice />,
-      trigger: '9'
+      trigger: '8'
     }, {
       id: '7',
       component: <RandomSadAdvice />,
